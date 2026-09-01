@@ -659,6 +659,128 @@
         ],
         "images": []
       }
+    },
+    {
+      "type": "Feature",
+      "id": "yangguan-pass",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.0664,
+          39.8732
+        ]
+      },
+      "properties": {
+        "id": "yangguan-pass",
+        "name_zh": "陽關遺址（絲路南道西出總門戶）",
+        "name_en": "Yangguan Pass",
+        "name_kharosthi": "Yangguan",
+        "stein_id": "Yangguan",
+        "historical_cluster": "河西敦煌－雙關門戶圈",
+        "search_aliases": [
+          "Yangguan",
+          "Yang Guan",
+          "陽關",
+          "Dunhuang"
+        ],
+        "period": {
+          "start_year": -120,
+          "end_year": 850,
+          "description": "漢至唐（西域南道第一關・西出鄯善之起點）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於敦煌西南約 70 公里古董灘一帶，為西漢武帝『列四郡、據兩關』所設西陲南隘。《漢書・西域傳》記載『自玉門、陽關出南道者，行鄯善』。商隊使團西出陽關後沿阿爾金山山前泉水帶直奔米蘭與鄯善。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=dunhuang",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "yumenguan-pass",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.8647,
+          40.3541
+        ]
+      },
+      "properties": {
+        "id": "yumenguan-pass",
+        "name_zh": "玉門關遺址（小方盤城 / 絲路北中道門戶）",
+        "name_en": "Yumen Pass (Little Fangpan Castle)",
+        "name_kharosthi": "Yumenguan",
+        "stein_id": "T.xiv",
+        "historical_cluster": "河西敦煌－雙關門戶圈",
+        "search_aliases": [
+          "Yumenguan",
+          "Yumen Pass",
+          "玉門關",
+          "小方盤城",
+          "Dunhuang"
+        ],
+        "period": {
+          "start_year": -120,
+          "end_year": 650,
+          "description": "漢晉時期（絲路北道與樓蘭中道西出總要隘）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於敦煌西北約 90 公里，為漢代通西域北道、中道（經樓蘭）之關鍵隘口。斯坦因編號為 T.xiv，在此出土漢簡確證為漢玉門關遺址。扼疏勒河下游咽喉，為漢代長城烽燧防禦體系西端起點。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=dunhuang",
+          "https://idp.bl.uk/collection/?q=Dunhuang"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "adag-spring",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.4521,
+          39.3854
+        ]
+      },
+      "properties": {
+        "id": "adag-spring",
+        "name_zh": "阿達格泉 / 鹹水泉（陽關－米蘭山前古道關鍵水源驛站）",
+        "name_en": "Adag Spring Station",
+        "name_kharosthi": "Adag",
+        "stein_id": "Adag",
+        "historical_cluster": "阿爾金山北麓綠洲走廊",
+        "search_aliases": [
+          "Adag",
+          "鹹水泉",
+          "阿達格泉",
+          "Altun",
+          "Miran",
+          "Yangguan"
+        ],
+        "period": {
+          "start_year": -120,
+          "end_year": 850,
+          "description": "西漢至唐宋（阿爾金山山前沖積扇關鍵泉水營地）"
+        },
+        "evidence_level": "text",
+        "evidence_level_label": "文獻與實地測繪",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於阿爾金山北麓山前沖積扇帶，庫姆塔格沙漠南緣。自陽關西進米蘭（鄯善）約 400 餘里之荒磧通道中，為商隊與使節沿山避開羅布泊鹽澤流沙之極關鍵淡水泉水補給點，法顯西行與斯坦因考查均曾取道於此。",
+        "source_links": [
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
     }
   ]
 }
