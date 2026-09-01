@@ -1,0 +1,208 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "peacock-river-ancient",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            86.15,
+            41.76
+          ],
+          [
+            87.2,
+            41.5
+          ],
+          [
+            88.3,
+            41.05
+          ],
+          [
+            89.2,
+            40.75
+          ],
+          [
+            89.919,
+            40.523
+          ],
+          [
+            90.3,
+            40.45
+          ],
+          [
+            90.55,
+            40.35
+          ]
+        ]
+      },
+      "properties": {
+        "id": "peacock-river-ancient",
+        "name_zh": "孔雀河古故道（流向羅布泊／樓蘭）",
+        "period": {
+          "start_year": -200,
+          "end_year": 330,
+          "description": "西漢至東晉初期（約西元330年前後斷流改道）"
+        },
+        "status": "dry_up",
+        "description": "孔雀河古下遊水系。古代水源自博斯騰湖經庫爾勒、鐵門關東流，滋養樓蘭古城與周邊屯田。西元4世紀前因泥沙淤積及上游改道斷流，是樓蘭古國消亡的核心環境因素。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tarim-river-ancient",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            81.28,
+            40.55
+          ],
+          [
+            83.5,
+            41.0
+          ],
+          [
+            85.5,
+            41.1
+          ],
+          [
+            87.0,
+            40.8
+          ],
+          [
+            88.5,
+            40.2
+          ],
+          [
+            89.5,
+            39.8
+          ],
+          [
+            90.4,
+            40.1
+          ]
+        ]
+      },
+      "properties": {
+        "id": "tarim-river-ancient",
+        "name_zh": "塔里木河古主幹道（注入羅布泊）",
+        "period": {
+          "start_year": -200,
+          "end_year": 800,
+          "description": "漢唐時期古河道"
+        },
+        "status": "active",
+        "description": "塔里木盆地主要內流河，漢唐時期水量充沛，尾閭匯入羅布泊大澤。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "niya-river-ancient",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            82.68,
+            36.85
+          ],
+          [
+            82.71,
+            37.3
+          ],
+          [
+            82.723,
+            37.989
+          ],
+          [
+            82.75,
+            38.3
+          ]
+        ]
+      },
+      "properties": {
+        "id": "niya-river-ancient",
+        "name_zh": "古尼雅河故道（延伸至沙漠深處）",
+        "period": {
+          "start_year": -200,
+          "end_year": 450,
+          "description": "兩漢至魏晉（精絕國時期）"
+        },
+        "status": "dry_up",
+        "description": "源出崑崙山，漢晉時期尼雅河深入塔克拉瑪干沙漠腹地數十公里，滋養尼雅遺址（精絕國）綠洲。魏晉後尾閭大幅退縮。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lop-nor-basin",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.95,
+              40.55
+            ],
+            [
+              90.15,
+              40.65
+            ],
+            [
+              90.45,
+              40.68
+            ],
+            [
+              90.75,
+              40.6
+            ],
+            [
+              90.95,
+              40.4
+            ],
+            [
+              90.9,
+              40.15
+            ],
+            [
+              90.7,
+              39.85
+            ],
+            [
+              90.4,
+              39.7
+            ],
+            [
+              90.1,
+              39.75
+            ],
+            [
+              89.85,
+              39.95
+            ],
+            [
+              89.8,
+              40.2
+            ],
+            [
+              89.95,
+              40.55
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "lop-nor-basin",
+        "name_zh": "古羅布泊（蒲昌海／鹽澤／幼澤）",
+        "period": {
+          "start_year": -200,
+          "end_year": 330,
+          "description": "漢晉全盛期大澤（西元330年後隨孔雀河斷流急遽退縮）"
+        },
+        "status": "active",
+        "area_km2": 3000,
+        "description": "《漢書》載『廣袤三百里，其水亭居，冬夏不增減』。為塔里木河與孔雀河尾閭湖。漢晉時期為碧波浩瀚的大澤，滋養樓蘭古國。西元4世紀孔雀河斷流後湖體向東南退縮，古湖盆逐漸乾涸成為鹽殼。"
+      }
+    }
+  ]
+}

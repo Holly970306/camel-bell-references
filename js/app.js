@@ -1,0 +1,382 @@
+// Silk Road Historical Map Application
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. 初始化 Leaflet 地圖（聚焦於塔里木盆地與羅布泊區域）
+  const map = L.map("map", {
+    center: [39.5, 86.0],
+    zoom: 6,
+    minZoom: 4,
+    maxZoom: 14
+  });
+
+  // 建立歷史圖磚專屬 Pane，確保獨立裁剪與透明度控制
+  map.createPane("historicalPane");
+  map.getPane("historicalPane").style.zIndex = 250;
+
+  // 2. 底圖與歷史圖磚
+  const satelliteLayer = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {
+      attribution: "Tiles &copy; Esri &mdash; Source: Esri, USGS, GIS User Community",
+      maxZoom: 18
+    }
+  ).addTo(map);
+
+  const osmLayer = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution: "&copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors",
+      maxZoom: 18
+    }
+  );
+
+  // 修正 DSR 斯坦因圖磚 CGI 格式 URL
+  const serindiaTileUrl = "https://dsr.nii.ac.jp/cgi-bin/map/tile.pl?t=s&z={z}&x={x}&y={y}";
+  const serindiaLayer = L.tileLayer(serindiaTileUrl, {
+    attribution: "&copy; <a href='https://dsr.nii.ac.jp/geography/stein-maps/serindia/'>Digital Silk Road (DSR)</a> / NII",
+    minZoom: 5,
+    maxZoom: 12,
+    opacity: 0.7,
+    pane: "historicalPane",
+    bounds: [
+      [34.0, 73.0],
+      [45.0, 104.0]
+    ]
+  }).addTo(map);
+
+  // 3. 向量圖層群組（遺址點位、古水系、商路）
+  const markersLayer = L.layerGroup().addTo(map);
+  const waterwaysLayer = L.layerGroup().addTo(map);
+  const routesLayer = L.layerGroup().addTo(map);
+
+  // 圖層控制器
+  const baseMaps = {
+    "現代衛星空照 (Satellite)": satelliteLayer,
+    "現代地圖 (OpenStreetMap)": osmLayer
+  };
+  const overlayMaps = {
+    "斯坦因《Serindia》歷史測繪圖 (1921)": serindiaLayer,
+    "遺址與考古點位": markersLayer,
+    "古水系故道（孔雀河/塔里木河）": waterwaysLayer,
+    "絲綢之路商路推測線": routesLayer
+  };
+  L.control.layers(baseMaps, overlayMaps, { position: "topright" }).addTo(map);
+
+  // 4. 歷史圖磚透明度滑桿控制
+  const opacitySlider = document.getElementById("serindia-opacity");
+  const opacityValue = document.getElementById("opacity-value");
+
+  if (opacitySlider && opacityValue) {
+    opacitySlider.addEventListener("input", (e) => {
+      const val = parseFloat(e.target.value);
+      serindiaLayer.setOpacity(val);
+      opacityValue.textContent = `${Math.round(val * 100)}%`;
+    });
+  }
+
+  // 5. 資料狀態管理
+  let sitesData = null;
+  let waterwaysData = null;
+  let routesData = null;
+  let activeOsViewer = null;
+
+  function createCustomIcon(evidenceLevel, label) {
+    return L.divIcon({
+      className: `custom-marker marker-${evidenceLevel}`,
+      html: `<span>${label}</span>`,
+      iconSize: [26, 26],
+      iconAnchor: [13, 13]
+    });
+  }
+
+  // 側欄開啟與 OpenSeadragon IIIF 渲染
+  const sidePanel = document.getElementById("side-panel");
+  const sidePanelBody = document.getElementById("side-panel-body");
+  const sidePanelTitle = document.getElementById("side-panel-title");
+  const closePanelBtn = document.getElementById("close-panel-btn");
+
+  function openSidePanel(properties) {
+    sidePanelTitle.textContent = properties.name_zh || "遺址考據細節";
+
+    if (activeOsViewer) {
+      activeOsViewer.destroy();
+      activeOsViewer = null;
+    }
+
+    let imagesHtml = "";
+    if (properties.images && properties.images.length > 0) {
+      imagesHtml = `
+        <div class="detail-section">
+          <label>田調歷史圖像 / 出土文物</label>
+          <div class="image-gallery">
+            ${properties.images
+              .map((img, idx) => {
+                if (img.iiif_url && window.OpenSeadragon) {
+                  return `
+                    <div class="image-card">
+                      <div class="iiif-viewer-wrapper">
+                        <div id="iiif-viewer-${idx}" class="iiif-viewer-container"></div>
+                      </div>
+                      <div class="image-caption">
+                        <span class="tag-badge iiif-badge">IIIF 高清深縮放</span>
+                        ${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small>
+                      </div>
+                    </div>
+                  `;
+                } else {
+                  return `
+                    <div class="image-card">
+                      <img src="${img.url}" alt="${img.caption || ''}" onerror="this.style.display='none'" />
+                      <div class="image-caption">${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small></div>
+                    </div>
+                  `;
+                }
+              })
+              .join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    let sourceLinksHtml = "";
+    if (properties.source_links && properties.source_links.length > 0) {
+      sourceLinksHtml = `
+        <div class="detail-section">
+          <label>考據文獻與資料庫出處</label>
+          ${properties.source_links
+            .map(
+              (link) => `
+            <div class="source-link-item">
+              <a href="${link}" target="_blank" rel="noopener noreferrer">${link}</a>
+            </div>`
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    const startYearStr = properties.period.start_year < 0 ? `前 ${Math.abs(properties.period.start_year)} 年` : `西元 ${properties.period.start_year} 年`;
+    const endYearStr = properties.period.end_year < 0 ? `前 ${Math.abs(properties.period.end_year)} 年` : `西元 ${properties.period.end_year} 年`;
+
+    sidePanelBody.innerHTML = `
+      <div class="detail-section">
+        <label>地名考證</label>
+        <div class="value"><strong>中文名：</strong> ${properties.name_zh || "-"}</div>
+        <div class="value"><strong>佉盧文轉寫：</strong> ${properties.name_kharosthi || "-"}</div>
+        <div class="value"><strong>斯坦因編號：</strong> ${properties.stein_id || "-"}</div>
+      </div>
+
+      <div class="detail-section">
+        <label>年代區間</label>
+        <div class="value">${startYearStr} 至 ${endYearStr} (${properties.period.description || "-"})</div>
+      </div>
+
+      <div class="detail-section">
+        <label>考據等級與授權</label>
+        <div>
+          <span class="tag-badge badge-${properties.evidence_level}">${properties.evidence_level_label || properties.evidence_level}</span>
+          <span class="tag-badge badge-rights">${properties.rights_label || properties.rights}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <label>考據重點與劇情備註</label>
+        <div class="value">${properties.description || "暫無考據備註"}</div>
+      </div>
+
+      ${imagesHtml}
+      ${sourceLinksHtml}
+    `;
+
+    sidePanel.classList.add("open");
+
+    // 初始化 OpenSeadragon 實例
+    if (properties.images && window.OpenSeadragon) {
+      properties.images.forEach((img, idx) => {
+        if (img.iiif_url) {
+          const container = document.getElementById(`iiif-viewer-${idx}`);
+          if (container) {
+            try {
+              activeOsViewer = OpenSeadragon({
+                id: `iiif-viewer-${idx}`,
+                prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@4.1.1/build/openseadragon/images/",
+                tileSources: img.iiif_url,
+                showNavigationControl: true,
+                navigationControlAnchor: OpenSeadragon.ControlAnchor.TOP_RIGHT,
+                showNavigator: false
+              });
+            } catch (err) {
+              console.warn("無法載入 IIIF 影像:", err);
+            }
+          }
+        }
+      });
+    }
+  }
+
+  function closeSidePanel() {
+    sidePanel.classList.remove("open");
+    if (activeOsViewer) {
+      activeOsViewer.destroy();
+      activeOsViewer = null;
+    }
+  }
+
+  if (closePanelBtn) {
+    closePanelBtn.addEventListener("click", closeSidePanel);
+  }
+
+  // 6. 向量資料渲染與時間軸篩選
+  function renderAllVectors(selectedYear) {
+    // 6.1 渲染遺址點位
+    markersLayer.clearLayers();
+    if (sitesData && sitesData.features) {
+      sitesData.features.forEach((feature) => {
+        const p = feature.properties;
+        const [lng, lat] = feature.geometry.coordinates;
+
+        if (selectedYear !== null && selectedYear !== undefined && p.period) {
+          if (selectedYear < p.period.start_year || selectedYear > p.period.end_year) {
+            return;
+          }
+        }
+
+        const label = p.stein_id || p.name_zh.substring(0, 2);
+        const markerIcon = createCustomIcon(p.evidence_level || "artifact", label);
+        const marker = L.marker([lat, lng], { icon: markerIcon });
+        marker.bindTooltip(`<strong>${p.name_zh}</strong><br>${p.period ? p.period.description : ''}`, {
+          direction: "top",
+          offset: [0, -10]
+        });
+
+        marker.on("click", () => openSidePanel(p));
+        markersLayer.addLayer(marker);
+      });
+    }
+
+    // 6.2 渲染古水系故道與羅布泊古湖面（隨年代過濾與樣式演變）
+    waterwaysLayer.clearLayers();
+    if (waterwaysData && waterwaysData.features) {
+      waterwaysData.features.forEach((feature) => {
+        const p = feature.properties;
+        const geomType = feature.geometry.type;
+        let isDry = false;
+
+        if (selectedYear !== null && selectedYear !== undefined && p.period) {
+          // 若水體/湖泊尚未形成則隱藏
+          if (selectedYear < p.period.start_year) return;
+          // 若選定年份已超過水系活躍年代（乾涸斷流/湖面退縮）
+          if (selectedYear > p.period.end_year) {
+            isDry = true;
+          }
+        }
+
+        let geoLayer;
+
+        if (geomType === "Polygon" || geomType === "MultiPolygon") {
+          // 羅布泊等面狀水體
+          geoLayer = L.geoJSON(feature, {
+            style: {
+              color: isDry ? "#94a3b8" : "#0284c7",
+              weight: isDry ? 1.5 : 2.5,
+              dashArray: isDry ? "6, 6" : undefined,
+              fillColor: isDry ? "#475569" : "#0ea5e9",
+              fillOpacity: isDry ? 0.15 : 0.45
+            }
+          });
+
+          geoLayer.bindTooltip(
+            `<strong>${p.name_zh}</strong><br>${
+              isDry
+                ? '<span style="color:#f87171">[乾涸鹽澤・湖水退縮]</span> '
+                : '<span style="color:#38bdf8">[碧波浩瀚・廣袤三百里]</span> '
+            }${p.period ? p.period.description : ''}<br><small style="color:#cbd5e1">${p.description || ''}</small>`,
+            { sticky: true }
+          );
+        } else {
+          // 線狀古河道
+          geoLayer = L.geoJSON(feature, {
+            style: {
+              color: isDry ? "#64748b" : "#38bdf8",
+              weight: isDry ? 2 : 3.5,
+              dashArray: isDry ? "4, 6" : undefined,
+              opacity: isDry ? 0.4 : 0.85
+            }
+          });
+
+          geoLayer.bindTooltip(
+            `<strong>${p.name_zh}</strong><br>${
+              isDry
+                ? '<span style="color:#f87171">[已乾涸斷流]</span> '
+                : '<span style="color:#38bdf8">[通水充沛]</span> '
+            }${p.period ? p.period.description : ''}`,
+            { sticky: true }
+          );
+        }
+
+        waterwaysLayer.addLayer(geoLayer);
+      });
+    }
+
+    // 6.3 渲染商路推測線（南道與北道獨立呈現，不形成封閉環狀）
+    routesLayer.clearLayers();
+    if (routesData && routesData.features) {
+      routesData.features.forEach((feature) => {
+        const p = feature.properties;
+        const routeColor = p.color || (p.route_type === "southern" ? "#ff3366" : "#a855f7");
+        const polyline = L.geoJSON(feature, {
+          style: {
+            color: routeColor,
+            weight: 3.5,
+            dashArray: "6, 6",
+            opacity: 0.95
+          }
+        });
+        polyline.bindTooltip(`<strong>${p.name_zh}</strong><br>${p.description || ''}`, { sticky: true });
+        routesLayer.addLayer(polyline);
+      });
+    }
+  }
+
+  // 7. 載入三份 GeoJSON 資料集
+  Promise.all([
+    fetch("data/sites.geojson").then((res) => res.json()),
+    fetch("data/waterways.geojson").then((res) => res.json()),
+    fetch("data/routes.geojson").then((res) => res.json())
+  ])
+    .then(([sites, waterways, routes]) => {
+      sitesData = sites;
+      waterwaysData = waterways;
+      routesData = routes;
+
+      const initialYear = parseInt(document.getElementById("timeline-range").value, 10);
+      renderAllVectors(initialYear);
+    })
+    .catch((err) => {
+      console.error("載入地理資料失敗:", err);
+    });
+
+  // 8. 時間軸滑桿事件
+  const timelineSlider = document.getElementById("timeline-range");
+  const yearDisplay = document.getElementById("current-year-display");
+
+  function formatYearText(year) {
+    if (year < 0) {
+      return `西元前 ${Math.abs(year)} 年 (漢武帝經略西域前後)`;
+    } else if (year <= 220) {
+      return `西元 ${year} 年 (兩漢時期)`;
+    } else if (year <= 589) {
+      return `西元 ${year} 年 (魏晉南北朝時期)`;
+    } else {
+      return `西元 ${year} 年 (隋唐時期)`;
+    }
+  }
+
+  if (timelineSlider && yearDisplay) {
+    timelineSlider.addEventListener("input", (e) => {
+      const year = parseInt(e.target.value, 10);
+      yearDisplay.textContent = formatYearText(year);
+      renderAllVectors(year);
+    });
+  }
+});

@@ -1,0 +1,414 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "loulan-la",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.919,
+          40.523
+        ]
+      },
+      "properties": {
+        "id": "loulan-la",
+        "name_zh": "樓蘭古城（LA）",
+        "name_en": "Loulan Ancient City",
+        "name_kharosthi": "Kroraimna (𐨐𐨿𐨪𐨆𐨪𐨀𐨁𐨣)",
+        "stein_id": "LA",
+        "period": {
+          "start_year": -176,
+          "end_year": 630,
+          "description": "西漢至唐初（約前2世紀至7世紀初）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於羅布泊西北岸。斯坦因在此發現三間房官署遺址、佛塔殘跡及大量漢文、佉盧文木牘。水系改道（孔雀河支流乾涸）被視為古城廢棄主因。",
+        "source_links": [
+          "https://idp.bl.uk/collection/?q=Loulan",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": [
+          {
+            "url": "https://dsr.nii.ac.jp/digital-maps/stein/images/sites/la_view.jpg",
+            "caption": "斯坦因拍攝之樓蘭 LA 佛塔與官署殘垣",
+            "iiif_url": "",
+            "source": "Digital Silk Road (DSR) / British Library"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "niya-nxiv",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.723,
+          37.989
+        ]
+      },
+      "properties": {
+        "id": "niya-nxiv",
+        "name_zh": "尼雅遺址（N.xiv）",
+        "name_en": "Niya Site",
+        "name_kharosthi": "Caḍ'ota (𐨕𐨜𐨆𐨟)",
+        "stein_id": "N.xiv",
+        "period": {
+          "start_year": -100,
+          "end_year": 450,
+          "description": "西漢至魏晉（精絕國故址）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於尼雅河尾閭三角洲，古代精絕國故地。出土大量佉盧文木牘、封泥、漢晉絲織品（包含『五星出東方利中國』錦護膊）與完整的民居、果園、佛寺庭院遺存。",
+        "source_links": [
+          "https://idp.bl.uk/collection/?q=Niya",
+          "https://dsr.nii.ac.jp/digital-maps/stein/place-names/map/"
+        ],
+        "images": [
+          {
+            "url": "https://dsr.nii.ac.jp/digital-maps/stein/images/sites/niya_house.jpg",
+            "caption": "斯坦因於尼雅 N.xiv 發掘之木構宅邸遺構",
+            "iiif_url": "https://idp.bl.uk/api/iiif/image/placeholder-niya-tablet/info.json",
+            "source": "International Dunhuang Project (IDP)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "miran-fort",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.91348,
+          39.23933
+        ]
+      },
+      "properties": {
+        "id": "miran-fort",
+        "name_zh": "米蘭遺址（M.I / M.II）",
+        "name_en": "Miran Site",
+        "name_kharosthi": "Miran",
+        "stein_id": "M.I",
+        "period": {
+          "start_year": 100,
+          "end_year": 850,
+          "description": "東漢至吐蕃時期（鄯善國南道重鎮）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "coordinate_source": "Digital Silk Road KMZ: miran",
+        "description": "座標校準至 DSR KMZ 所列米蘭考古遺址點，而非現代若羌周邊城鎮。絲綢之路南道重鎮，出土帶翼天使壁畫、吐蕃古戍堡與灌溉渠道系統。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=miran",
+          "https://idp.bl.uk/collection/?q=Miran"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "endere-fort",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.95282,
+          37.74943
+        ]
+      },
+      "properties": {
+        "id": "endere-fort",
+        "name_zh": "安迪爾古城（E.i）",
+        "name_en": "Endere Site",
+        "name_kharosthi": "Endere",
+        "stein_id": "E.i",
+        "period": {
+          "start_year": 200,
+          "end_year": 800,
+          "description": "東漢至唐代"
+        },
+        "evidence_level": "text",
+        "evidence_level_label": "文獻記載",
+        "rights": "internal_only",
+        "rights_label": "劇組內部考據",
+        "coordinate_source": "Digital Silk Road KMZ: endere",
+        "description": "座標校準至 DSR KMZ 所列安迪爾沙漠古城遺址點，而非較北的現代安迪爾聚落。位於安迪爾河下游，為唐代安迪爾古戌堡。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=endere",
+          "https://dsr.nii.ac.jp/ruin/s/en/page/map"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dunhuang-mogao",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.66421,
+          40.14089
+        ]
+      },
+      "properties": {
+        "id": "dunhuang-mogao",
+        "name_zh": "敦煌（莫高窟 / 陽關玉門關起點）",
+        "name_en": "Dunhuang",
+        "name_kharosthi": "Dhriṁhaṇa",
+        "stein_id": "T.xix",
+        "period": {
+          "start_year": -200,
+          "end_year": 800,
+          "description": "漢至唐（絲綢之路東端總門戶）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "絲路咽喉總樞紐。斯坦因在此發現藏經洞萬卷文書、古漢簡與佛畫。西出陽關通南道、出玉門關通北道。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=dunhuang",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "khotan-yotkan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8758,
+          37.13077
+        ]
+      },
+      "properties": {
+        "id": "khotan-yotkan",
+        "name_zh": "于闐古國（約特干遺址 / 和田）",
+        "name_en": "Khotan (Yotkan)",
+        "name_kharosthi": "Gaoštana (𐨒𐨆𐨮𐨿𐨟𐨣)",
+        "stein_id": "Yotkan",
+        "period": {
+          "start_year": -150,
+          "end_year": 800,
+          "description": "兩漢至唐代（西域佛教與玉石貿易重鎮）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "coordinate_source": "Digital Silk Road KMZ: yotkan",
+        "description": "座標校準至 DSR KMZ 所列約特干（Yotkan）考古遺址，而非現代和田市中心。絲路南道著名佛教古國與和田美玉產地，出土大量漢佉二體錢、希臘化風格陶塑與佛教木版畫。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=yotkan",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "turpan-gaochang",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.17787,
+          42.94916
+        ]
+      },
+      "properties": {
+        "id": "turpan-gaochang",
+        "name_zh": "高昌古城（吐魯番）",
+        "name_en": "Gaochang (Turpan)",
+        "name_kharosthi": "Qocho",
+        "stein_id": "K.K.",
+        "period": {
+          "start_year": -100,
+          "end_year": 800,
+          "description": "西漢至唐宋（絲路北道咽喉重鎮）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "吐魯番盆地核心古城，曾為高昌國都城及唐代西州治所。斯坦因與黃文弼均在此發掘大量漢文、粟特文文書與壁畫。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=turfan",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "charkhlik-shanshan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.1663,
+          39.0212
+        ]
+      },
+      "properties": {
+        "id": "charkhlik-shanshan",
+        "name_zh": "若羌古城（Charkhlik / 扺洹城 / 鄯善新都）",
+        "name_en": "Charkhlik Site",
+        "name_kharosthi": "Maha-Kroraimna",
+        "stein_id": "Charkhlik",
+        "historical_cluster": "樓蘭－鄯善－羅布泊圈",
+        "search_aliases": [
+          "Charklik",
+          "Charkliq",
+          "Qarkilik",
+          "Ruoqiang",
+          "Shanshan",
+          "Loulan"
+        ],
+        "period": {
+          "start_year": -77,
+          "end_year": 650,
+          "description": "西漢至唐代（漢改樓蘭為鄯善後之王城）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "西漢昭帝元鳳四年（前77年）傅介子刺樓蘭王安歸後，更國名為『鄯善』，王城自羅布泊北岸樓蘭遷至南麓扺洹城（若羌）。為絲路南道、南北穿越道及通往青海羌中道之重要樞紐。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=charkhlik",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "charchan-qiemo",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.5226,
+          38.1305
+        ]
+      },
+      "properties": {
+        "id": "charchan-qiemo",
+        "name_zh": "且末古城（Charchan / 扎滾魯克）",
+        "name_en": "Charchan Site",
+        "name_kharosthi": "Calmadana (𐨕𐨫𐨿𐨨𐨡𐨣)",
+        "stein_id": "Charchan",
+        "historical_cluster": "絲路南道綠洲圈",
+        "search_aliases": [
+          "Charchan",
+          "Cherchen",
+          "Qiemo",
+          "Charchan site"
+        ],
+        "period": {
+          "start_year": -200,
+          "end_year": 800,
+          "description": "西漢至唐代（西域三十六國之且末國）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "車爾臣河下游綠洲要衝，漢代且末國故地，後併入鄯善國。出土著名扎滾魯克古墓群彩繪毛織品、箜篌樂器與佉盧文簡牘，為南道核心綠洲重鎮。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=charchan",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "karadong-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.9034,
+          38.5401
+        ]
+      },
+      "properties": {
+        "id": "karadong-site",
+        "name_zh": "喀拉墩古城（Karadong）",
+        "name_en": "Karadong Site",
+        "name_kharosthi": "Khadalik",
+        "stein_id": "Karadong",
+        "historical_cluster": "于闐－克里雅河圈",
+        "search_aliases": [
+          "Karadong",
+          "Kara-dong",
+          "Kara Dong",
+          "Keriya",
+          "Keriya River"
+        ],
+        "period": {
+          "start_year": -100,
+          "end_year": 400,
+          "description": "漢晉時期（克里雅河下游沙漠腹地城堡）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "斯坦因於克里雅河下游乾涸尾閭沙漠腹地發掘之漢晉古城與佛寺。保存了新疆境內年代最早之佛教回廊回字形佛殿與犍陀羅風格彩繪壁畫。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=karadong",
+          "https://idp.bl.uk/collection/?q=Karadong"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "rawak-stupa",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1295,
+          37.3444
+        ]
+      },
+      "properties": {
+        "id": "rawak-stupa",
+        "name_zh": "熱瓦克佛寺遺址（Rawak Stupa）",
+        "name_en": "Rawak Stupa",
+        "name_kharosthi": "Rawak",
+        "stein_id": "Rawak",
+        "historical_cluster": "于闐佛教文化圈",
+        "search_aliases": [
+          "Rawak",
+          "Rawak Stupa",
+          "Rāwak",
+          "Khotan",
+          "Khotan Stupa",
+          "Yotkan"
+        ],
+        "period": {
+          "start_year": 100,
+          "end_year": 650,
+          "description": "東漢至盛唐（于闐國著名大型舍利塔）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位于和田沙漠東北緣，斯坦因發掘之極具代表性的犍陀羅覆缽式大型佛塔與院落。出土數十尊大型彩繪高浮雕泥塑佛像、菩薩像群與漢佉二體錢。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=rawak",
+          "https://idp.bl.uk/collection/?q=Rawak"
+        ],
+        "images": []
+      }
+    }
+  ]
+}
