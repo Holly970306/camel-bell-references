@@ -409,6 +409,256 @@
         ],
         "images": []
       }
+    },
+    {
+      "id": "washxari-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.37278,
+          38.68434
+        ]
+      },
+      "properties": {
+        "id": "washxari-site",
+        "name_zh": "瓦石峽古城（Washxari）",
+        "name_en": "Washxari Site",
+        "name_kharosthi": "Washshahri",
+        "stein_id": "Washxari",
+        "historical_cluster": "樓蘭－鄯善－羅布泊圈",
+        "search_aliases": [
+          "Washxari",
+          "Wash-xari",
+          "Washshahri",
+          "Vashshahri",
+          "瓦石峽",
+          "Charkhlik"
+        ],
+        "period": {
+          "start_year": -100,
+          "end_year": 850,
+          "description": "西漢至唐宋（若羌西南重要屯田與冶鐵綠洲）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "coordinate_source": "Digital Silk Road KMZ: waxxari",
+        "description": "位於若羌西南約 78 公里之瓦石峽河下游綠洲，為古代絲路南道必經之屯田聚落。斯坦因在此調查古城址與陶窯、冶鐵遺址，出土漢魏至唐宋陶片、石磨與金屬冶煉殘渣。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=waxxari",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "lk-fort-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.68111,
+          40.08750
+        ]
+      },
+      "properties": {
+        "id": "lk-fort-site",
+        "name_zh": "LK 戍堡遺址 / 海頭故城（L.K.）",
+        "name_en": "L.K. Fort Site",
+        "name_kharosthi": "L.K.",
+        "stein_id": "L.K.",
+        "historical_cluster": "樓蘭－鄯善－羅布泊圈",
+        "search_aliases": [
+          "L.K.",
+          "LK",
+          "LK Fort",
+          "Haitou",
+          "海頭故城",
+          "Loulan",
+          "Charkhlik"
+        ],
+        "period": {
+          "start_year": -100,
+          "end_year": 450,
+          "description": "漢晉時期（羅布泊西南荒原哨所與軍事戍堡）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "coordinate_source": "Digital Silk Road KMZ: lk",
+        "description": "距若羌東北約 176 公里，位於羅布泊西南荒原與古河道旁。斯坦因編號為 L.K.，亦被部分學者考為魏晉海頭故城。遺址包含土坯壘砌之方形戍堡、烽燧與民居遺跡，出土漢晉簡牘與絲織殘片。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=lk",
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "yingpan-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.8172,
+          40.9785
+        ]
+      },
+      "properties": {
+        "id": "yingpan-site",
+        "name_zh": "營盤古城遺址（Yingpan）",
+        "name_en": "Yingpan Site",
+        "name_kharosthi": "Yingpan",
+        "stein_id": "Ying-p'an",
+        "historical_cluster": "庫爾勒－若羌沙漠穿越圈",
+        "search_aliases": [
+          "Yingpan",
+          "Ying-pan",
+          "Yingp'an",
+          "營盤",
+          "Korla",
+          "Charkhlik"
+        ],
+        "period": {
+          "start_year": -100,
+          "end_year": 500,
+          "description": "西漢至魏晉（孔雀河下游古城與沙漠穿越道北端門戶）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於若羌以北約 220 公里，為孔雀河下游南岸古代交通咽喉。斯坦因曾在此勘察圓形古城垣與佛寺，出土著名的『紅地對人獸樹紋雙面罽袍』等多重文化交融之織錦、木器與泥塑。",
+        "source_links": [
+          "http://dsr.nii.ac.jp/cgi-bin/toyobunko/geta_search.pl?sn=all&lang=en&input=yingpan",
+          "https://idp.bl.uk/collection/?q=Yingpan"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "tuyin-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.2312,
+          40.5891
+        ]
+      },
+      "properties": {
+        "id": "tuyin-site",
+        "name_zh": "土垠遺址群（Tuyin）",
+        "name_en": "Tuyin Site",
+        "name_kharosthi": "Tuyin",
+        "stein_id": "Tu-yin",
+        "historical_cluster": "樓蘭－鄯善－羅布泊圈",
+        "search_aliases": [
+          "Tuyin",
+          "Tu-yin",
+          "土垠",
+          "Loulan",
+          "Lop Nor"
+        ],
+        "period": {
+          "start_year": -150,
+          "end_year": 400,
+          "description": "西漢至魏晉（羅布泊北岸古碼頭與絲路樓蘭道地標）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "距若羌東北約 248 公里，位於羅布泊北岸雅丹台地之上。為西漢進入樓蘭地區的重要古碼頭與驛站據點，出土大量漢代木簡、銅鏃、陶器及絲綢殘片，證實為西漢絲路樓蘭古道關鍵物資轉運站。",
+        "source_links": [
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/",
+          "https://idp.bl.uk/collection/?q=Tuyin"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "arghan-station",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.3882,
+          39.8012
+        ]
+      },
+      "properties": {
+        "id": "arghan-station",
+        "name_zh": "阿拉乾營地 / 驛站（Arghan）",
+        "name_en": "Arghan Station",
+        "name_kharosthi": "Arghan",
+        "stein_id": "Arghan",
+        "historical_cluster": "庫爾勒－若羌沙漠穿越圈",
+        "search_aliases": [
+          "Arghan",
+          "Alagan",
+          "阿拉乾",
+          "阿爾幹",
+          "Tikanlik",
+          "鐵幹里克",
+          "Charkhlik",
+          "Korla"
+        ],
+        "period": {
+          "start_year": -100,
+          "end_year": 850,
+          "description": "西漢至唐宋（沙漠穿越道中段關鍵飲水補給營地與古塔里木河渡口）"
+        },
+        "evidence_level": "text",
+        "evidence_level_label": "文獻與實地測繪",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "位於若羌以北約 98 公里，地處庫爾勒－若羌沙漠穿越道路線中段、古塔里木河下游河道與蘆葦水潭交會處。為古代駝隊橫越塔里木沙漠東緣最核心的飲水休整營地，斯坦因與斯文赫定探險隊均曾在此設立基準補給大營。",
+        "source_links": [
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/",
+          "https://idp.bl.uk/collection/?q=Arghan"
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "xiaohe-site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.6741,
+          40.3347
+        ]
+      },
+      "properties": {
+        "id": "xiaohe-site",
+        "name_zh": "小河遺址群 / 墓地（Xiaohe Site）",
+        "name_en": "Xiaohe Cemetery Site",
+        "name_kharosthi": "Xiaohe",
+        "stein_id": "Xiaohe",
+        "historical_cluster": "樓蘭－鄯善－羅布泊圈",
+        "search_aliases": [
+          "Xiaohe",
+          "Xiaohe Cemetery",
+          "小河墓地",
+          "小河遺址",
+          "Lop Nor",
+          "Loulan"
+        ],
+        "period": {
+          "start_year": -200,
+          "end_year": 400,
+          "description": "青銅時代至魏晉（孔雀河下游早期核心文化遺址與船棺木柱沙丘）"
+        },
+        "evidence_level": "artifact",
+        "evidence_level_label": "出土實物佐證",
+        "rights": "public_domain",
+        "rights_label": "公有領域 / 學術引用",
+        "description": "距若羌東北約 152 公里，座落於孔雀河下游古三角洲沙丘之中。出土著名的船棺、多層立柱木樁、草編織物、毛織斗篷與乾屍，為羅布荒原極具代表性的早期文明地標，見證古孔雀河水系的豐沛與生態變遷。",
+        "source_links": [
+          "https://dsr.nii.ac.jp/geography/stein-maps/serindia/",
+          "https://idp.bl.uk/collection/?q=Loulan"
+        ],
+        "images": []
+      }
     }
   ]
 }

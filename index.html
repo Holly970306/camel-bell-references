@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>古代樓蘭・尼雅絲路田調互動地圖</title>
+  <title>鄯善歷史田調考據互動地圖（初稿）</title>
   
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -16,14 +16,30 @@
 </head>
 <body>
 
+  <!-- 密碼驗證遮罩 -->
+  <div id="auth-overlay" class="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-icon">🏛️</div>
+      <h2 class="auth-title">鄯善歷史田調考據互動地圖（初稿）</h2>
+      <p class="auth-subtitle">劇組考據內部預覽專區</p>
+      <form id="auth-form" class="auth-form" onsubmit="return false;">
+        <div class="auth-input-group">
+          <input type="password" id="auth-password" class="auth-input" placeholder="請輸入訪問密碼" autocomplete="current-password" autofocus>
+          <button type="submit" id="auth-submit-btn" class="auth-btn">解鎖地圖</button>
+        </div>
+        <div id="auth-error-msg" class="auth-error-msg"></div>
+      </form>
+    </div>
+  </div>
+
   <!-- 頂部標題列 -->
   <header>
     <h1>
-      <span>🏛️ 絲路歷史田調考據互動地圖</span>
+      <span>🏛️ 鄯善歷史田調考據互動地圖（初稿）</span>
       <span class="header-subtitle">樓蘭・尼雅・塔里木盆地遺址時空對位</span>
     </h1>
     <div style="font-size: 0.8rem; color: #94a3b8;">
-      本機原型（Local-first）・劇組考據專用
+      劇組考據專用
     </div>
   </header>
 
@@ -52,7 +68,8 @@
         <span style="color: #0ea5e9;">■</span> 水藍面：古羅布泊大澤（蒲昌海）<br>
         <span style="color: #38bdf8;">━</span> 藍實線：古水系故道<br>
         <span style="color: #ff3366;">┄</span> 桃紅虛線：絲路南道 | <span style="color: #a855f7;">┄</span> 紫色虛線：絲路中/北道<br>
-        <span style="color: #f97316;">┄</span> 橙色虛線：庫爾勒－若羌沙漠穿越道
+        <span style="color: #f97316;">┄</span> 橙色虛線：庫爾勒－若羌沙漠穿越道<br>
+        <span style="color: #94a3b8;">◯</span> 深灰虛線圈：若羌 300km 田調考據圈
       </div>
     </div>
 

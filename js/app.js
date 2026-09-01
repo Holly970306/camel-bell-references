@@ -1,13 +1,73 @@
 // Silk Road Historical Map Application
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 0. 訪問驗證
+  const authOverlay = document.getElementById("auth-overlay");
+  const authForm = document.getElementById("auth-form");
+  const authPassword = document.getElementById("auth-password");
+  const authErrorMsg = document.getElementById("auth-error-msg");
+  const authCard = authOverlay ? authOverlay.querySelector(".auth-card") : null;
+
+  const authHash = "4812585e944994cb91cae8b4d8d87a155e6b1a165d8bdf5ab75752c4f04b9724";
+  const authStorageKey = "silk_road_map_auth";
+
+  async function computeHash(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  if (sessionStorage.getItem(authStorageKey) === "granted") {
+    if (authOverlay) authOverlay.classList.add("hidden");
+  } else {
+    if (authOverlay) authOverlay.classList.remove("hidden");
+    if (authPassword) authPassword.focus();
+  }
+
+  async function handleAuthSubmit() {
+    if (!authPassword) return;
+    const inputVal = authPassword.value.trim();
+    const inputHash = await computeHash(inputVal);
+
+    if (inputHash === authHash) {
+      sessionStorage.setItem(authStorageKey, "granted");
+      if (authErrorMsg) authErrorMsg.textContent = "";
+      if (authOverlay) authOverlay.classList.add("hidden");
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 300);
+    } else {
+      if (authErrorMsg) authErrorMsg.textContent = "密碼錯誤，請重新輸入";
+      if (authCard) {
+        authCard.classList.remove("auth-shake");
+        void authCard.offsetWidth; // trigger reflow
+        authCard.classList.add("auth-shake");
+      }
+      authPassword.value = "";
+      authPassword.focus();
+    }
+  }
+
+  if (authForm) {
+    authForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleAuthSubmit();
+    });
+  }
+
   // 1. 初始化 Leaflet 地圖（聚焦於塔里木盆地與羅布泊區域）
   const map = L.map("map", {
     center: [39.5, 86.0],
     zoom: 6,
     minZoom: 4,
-    maxZoom: 14
+    maxZoom: 14,
+    zoomControl: false // 停用預設左上角縮放控制，避免遭左側控制面板遮擋
   });
+
+  // 將縮放控制項（+/-）放置於右下角（符合地圖常規且避開左側浮動面板）
+  L.control.zoom({ position: "bottomright" }).addTo(map);
 
   // 建立歷史圖磚專屬 Pane，確保獨立裁剪與透明度控制
   map.createPane("historicalPane");
@@ -44,10 +104,24 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
   }).addTo(map);
 
-  // 3. 向量圖層群組（遺址點位、古水系、商路）
+  // 3. 向量圖層群組（遺址點位、古水系、商路、田調半徑輔助圈）
   const markersLayer = L.layerGroup().addTo(map);
   const waterwaysLayer = L.layerGroup().addTo(map);
   const routesLayer = L.layerGroup().addTo(map);
+  const radiusLayer = L.layerGroup().addTo(map);
+
+  // 繪製若羌（Charkhlik）中心 300 公里田調研究範疇輔助圈（設為非互動圖層，避免游標滑過大面積時頻繁觸發浮動對話框）
+  const charkhlikCoords = [39.0212, 88.1663];
+  const surveyCircle = L.circle(charkhlikCoords, {
+    radius: 300000, // 300 公里
+    color: "#64748b",
+    weight: 1.5,
+    dashArray: "6, 8",
+    fillColor: "#334155",
+    fillOpacity: 0.04,
+    interactive: false
+  });
+  radiusLayer.addLayer(surveyCircle);
 
   // 圖層控制器
   const baseMaps = {
@@ -57,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlayMaps = {
     "斯坦因《Serindia》歷史測繪圖 (1921)": serindiaLayer,
     "遺址與考古點位": markersLayer,
+    "若羌 300km 田調範疇圈": radiusLayer,
     "古水系故道（孔雀河/塔里木河）": waterwaysLayer,
     "絲綢之路商路推測線": routesLayer
   };
