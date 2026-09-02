@@ -181,6 +181,23 @@ header h1 {
   display: block;
 }
 
+.image-unavailable {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #cbd5e1;
+  background: repeating-linear-gradient(
+    -45deg,
+    #1e293b,
+    #1e293b 10px,
+    #0f172a 10px,
+    #0f172a 20px
+  );
+  text-align: center;
+}
+
 .image-caption {
   padding: 8px 12px;
   font-size: 0.8rem;

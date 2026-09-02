@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 修正 DSR 斯坦因圖磚 CGI 格式 URL
   const serindiaTileUrl = "https://dsr.nii.ac.jp/cgi-bin/map/tile.pl?t=s&z={z}&x={x}&y={y}";
   const serindiaLayer = L.tileLayer(serindiaTileUrl, {
-    attribution: "&copy; <a href='https://dsr.nii.ac.jp/geography/stein-maps/serindia/'>Digital Silk Road (DSR)</a> / NII",
+    attribution: "&copy; <a href='http://dsr.nii.ac.jp/toyobunko/'>Digital Silk Road (DSR)</a> / NII",
     minZoom: 5,
     maxZoom: 12,
     opacity: 0.7,
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let sitesData = null;
   let waterwaysData = null;
   let routesData = null;
-  let activeOsViewer = null;
+  let activeOsViewers = [];
 
   function createCustomIcon(evidenceLevel, label) {
     return L.divIcon({
@@ -169,14 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidePanelBody = document.getElementById("side-panel-body");
   const sidePanelTitle = document.getElementById("side-panel-title");
   const closePanelBtn = document.getElementById("close-panel-btn");
+  const siteDetail = window.SiteDetail;
+
+  function destroyActiveOsViewers() {
+    activeOsViewers.forEach((viewer) => viewer.destroy());
+    activeOsViewers = [];
+  }
 
   function openSidePanel(properties) {
     sidePanelTitle.textContent = properties.name_zh || "遺址考據細節";
 
-    if (activeOsViewer) {
-      activeOsViewer.destroy();
-      activeOsViewer = null;
-    }
+    destroyActiveOsViewers();
 
     let imagesHtml = "";
     if (properties.images && properties.images.length > 0) {
@@ -198,14 +201,15 @@ document.addEventListener("DOMContentLoaded", () => {
                       </div>
                     </div>
                   `;
-                } else {
+                } else if (img.url) {
                   return `
                     <div class="image-card">
-                      <img src="${img.url}" alt="${img.caption || ''}" onerror="this.style.display='none'" />
+                      <img src="${img.url}" alt="${img.caption || ''}" data-source="${img.source || ''}" onerror="window.SiteDetail.replaceFailedImage(this)" />
                       <div class="image-caption">${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small></div>
                     </div>
                   `;
                 }
+                return `<div class="image-card">${siteDetail.renderImageFallback(img)}</div>`;
               })
               .join("")}
           </div>
@@ -218,14 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sourceLinksHtml = `
         <div class="detail-section">
           <label>考據文獻與資料庫出處</label>
-          ${properties.source_links
-            .map(
-              (link) => `
-            <div class="source-link-item">
-              <a href="${link}" target="_blank" rel="noopener noreferrer">${link}</a>
-            </div>`
-            )
-            .join("")}
+          ${siteDetail.renderSourceLinks(properties.source_links)}
         </div>
       `;
     }
@@ -272,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const container = document.getElementById(`iiif-viewer-${idx}`);
           if (container) {
             try {
-              activeOsViewer = OpenSeadragon({
+              const viewer = OpenSeadragon({
                 id: `iiif-viewer-${idx}`,
                 prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@4.1.1/build/openseadragon/images/",
                 tileSources: img.iiif_url,
@@ -280,8 +277,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 navigationControlAnchor: OpenSeadragon.ControlAnchor.TOP_RIGHT,
                 showNavigator: false
               });
+              viewer.addHandler("open-failed", () => {
+                siteDetail.replaceImageCard(container.closest(".image-card"), img);
+              });
+              activeOsViewers.push(viewer);
             } catch (err) {
               console.warn("無法載入 IIIF 影像:", err);
+              siteDetail.replaceImageCard(container.closest(".image-card"), img);
             }
           }
         }
@@ -291,10 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeSidePanel() {
     sidePanel.classList.remove("open");
-    if (activeOsViewer) {
-      activeOsViewer.destroy();
-      activeOsViewer = null;
-    }
+    destroyActiveOsViewers();
   }
 
   if (closePanelBtn) {
@@ -415,9 +414,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 7. 載入三份 GeoJSON 資料集
   Promise.all([
-    fetch("data/sites.geojson").then((res) => res.json()),
-    fetch("data/waterways.geojson").then((res) => res.json()),
-    fetch("data/routes.geojson").then((res) => res.json())
+    fetch("data/sites.geojson", { cache: "no-store" }).then((res) => res.json()),
+    fetch("data/waterways.geojson", { cache: "no-store" }).then((res) => res.json()),
+    fetch("data/routes.geojson", { cache: "no-store" }).then((res) => res.json())
   ])
     .then(([sites, waterways, routes]) => {
       sitesData = sites;
@@ -455,3 +454,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

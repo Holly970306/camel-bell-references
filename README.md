@@ -50,5 +50,6 @@
 
 ## 授權與引用聲明
 
-- 歷史地圖圖磚來源：[Digital Silk Road (DSR) Project](https://dsr.nii.ac.jp/geography/stein-maps/serindia/) / National Institute of Informatics (NII), Japan.
+- 歷史地圖圖磚來源：[Digital Silk Road (DSR) Project](http://dsr.nii.ac.jp/toyobunko/) / National Institute of Informatics (NII), Japan.
 - 衛星底圖來源：Esri, USGS, GIS User Community.
+

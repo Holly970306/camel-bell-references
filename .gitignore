@@ -4,6 +4,12 @@ Thumbs.db
 *.swp
 *.bak
 
+# Office 暫存鎖定檔（開啟 xlsx 時產生）
+~$*
+
+# 本機瀏覽器驗證產物，非應用程式原始碼
+.chrome-verify/
+
 # Project internal specs & agent workflows
 .spectra/
 .spectra.yaml
@@ -15,5 +21,4 @@ openspec/
 AGENTS.md
 CLAUDE.md
 GEMINI.md
-start_map.bat
 
