@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "import-artifacts": "node scripts/import-artifact-records.mjs"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

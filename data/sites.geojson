@@ -37,12 +37,12 @@
           "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
           "status": "verified"
         }],
-        "images": [
+        "artifact_records": [
           {
-            "url": "https://dsr.nii.ac.jp/digital-maps/stein/images/sites/la_view.jpg",
-            "caption": "斯坦因拍攝之樓蘭 LA 佛塔與官署殘垣",
-            "iiif_url": "",
-            "source": "Digital Silk Road (DSR) / British Library"
+            "title": "String of 25 glass beads of different shapes and colours",
+            "image_url": "images/artifacts/loulan-glass-beads.png",
+            "record_url": "https://idp.bl.uk/collection/6D85CEDE6B2E4733B2517DE77B53DB20/",
+            "source": "International Dunhuang Project (IDP)"
           }
         ]
       }
@@ -81,15 +81,7 @@
           "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03415.html.en",
           "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
           "status": "verified"
-        }],
-        "images": [
-          {
-            "url": "https://dsr.nii.ac.jp/digital-maps/stein/images/sites/niya_house.jpg",
-            "caption": "斯坦因於尼雅 N.xiv 發掘之木構宅邸遺構",
-            "iiif_url": "https://idp.bl.uk/api/iiif/image/placeholder-niya-tablet/info.json",
-            "source": "International Dunhuang Project (IDP)"
-          }
-        ]
+        }]
       }
     },
     {

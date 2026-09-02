@@ -153,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let sitesData = null;
   let waterwaysData = null;
   let routesData = null;
-  let activeOsViewers = [];
 
   function createCustomIcon(evidenceLevel, label, markerCategory) {
     const markerClass = markerCategory || evidenceLevel;
@@ -165,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 側欄開啟與 OpenSeadragon IIIF 渲染
+  // 側欄開啟與地標資料渲染
   const sidePanel = document.getElementById("side-panel");
   const sidePanelBody = document.getElementById("side-panel-body");
   const sidePanelTitle = document.getElementById("side-panel-title");
@@ -173,14 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 側欄渲染模組缺席時的最小備援：只求可讀、不求樣式一致
   function buildFallbackSiteDetail() {
     const linkUnavailable = '<div class="source-link-item source-link-unavailable">目前無可用公開連結</div>';
-    const imageUnavailable = '<div class="image-unavailable" role="status">影像目前無法載入</div>';
     return {
       renderSourceLinks: () => linkUnavailable,
-      renderImageFallback: () => imageUnavailable,
-      replaceImageCard: (card) => {
-        if (card) card.innerHTML = imageUnavailable;
-      },
-      replaceFailedImage: () => {}
+      renderArtifactRecords: () => ""
     };
   }
 
@@ -196,88 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return buildFallbackSiteDetail();
   }
 
-  // 行內 onerror 的薄包裝：在全域範圍執行，無法存取 getSiteDetail 以外的閉包
-  window.handleMapImageError = function (imageElement) {
-    const detail = getSiteDetail();
-    if (detail && typeof detail.replaceFailedImage === "function") {
-      detail.replaceFailedImage(imageElement);
-    }
-  };
-
-  function destroyActiveOsViewers() {
-    activeOsViewers.forEach((viewer) => {
-      try {
-        viewer.destroy();
-      } catch (err) {
-        console.warn("OpenSeadragon 檢視器銷毀失敗:", err);
-      }
-    });
-    activeOsViewers = [];
-  }
-
-  function discardOsViewer(viewer) {
-    const index = activeOsViewers.indexOf(viewer);
-    if (index !== -1) activeOsViewers.splice(index, 1);
-    try {
-      viewer.destroy();
-    } catch (err) {
-      console.warn("OpenSeadragon 檢視器銷毀失敗:", err);
-    }
-  }
-
-  // 一般圖檔卡片內容，供初次渲染與 IIIF 失敗降級共用
-  function plainImageCardInner(img) {
-    return `
-      <img src="${img.url}" alt="${img.caption || ''}" data-source="${img.source || ''}" onerror="window.handleMapImageError(this)" />
-      <div class="image-caption">${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small></div>
-    `;
-  }
-
-  // IIIF 失敗時的降級：有一般圖檔就改用一般圖檔，否則落到文字佔位
-  function degradeIiifCard(card, img) {
-    if (!card) return;
-    if (img && img.url) {
-      card.innerHTML = plainImageCardInner(img);
-    } else {
-      getSiteDetail().replaceImageCard(card, img);
-    }
-  }
-
   function openSidePanel(properties) {
     sidePanelTitle.textContent = properties.name_zh || "遺址考據細節";
-
-    destroyActiveOsViewers();
-
-    let imagesHtml = "";
-    if (properties.images && properties.images.length > 0) {
-      imagesHtml = `
-        <div class="detail-section">
-          <label>田調歷史圖像 / 出土文物</label>
-          <div class="image-gallery">
-            ${properties.images
-              .map((img, idx) => {
-                if (img.iiif_url && window.OpenSeadragon) {
-                  return `
-                    <div class="image-card">
-                      <div class="iiif-viewer-wrapper">
-                        <div id="iiif-viewer-${idx}" class="iiif-viewer-container"></div>
-                      </div>
-                      <div class="image-caption">
-                        <span class="tag-badge iiif-badge">IIIF 高清深縮放</span>
-                        ${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small>
-                      </div>
-                    </div>
-                  `;
-                } else if (img.url) {
-                  return `<div class="image-card">${plainImageCardInner(img)}</div>`;
-                }
-                return `<div class="image-card">${getSiteDetail().renderImageFallback(img)}</div>`;
-              })
-              .join("")}
-          </div>
-        </div>
-      `;
-    }
 
     let sourceLinksHtml = "";
     if (properties.source_links && properties.source_links.length > 0) {
@@ -288,6 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }
+
+    const artifactRecordsHtml = getSiteDetail().renderArtifactRecords(properties.artifact_records);
 
     const startYearStr = properties.period.start_year < 0 ? `前 ${Math.abs(properties.period.start_year)} 年` : `西元 ${properties.period.start_year} 年`;
     const endYearStr = properties.period.end_year < 0 ? `前 ${Math.abs(properties.period.end_year)} 年` : `西元 ${properties.period.end_year} 年`;
@@ -318,45 +234,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="value">${properties.description || "暫無考據備註"}</div>
       </div>
 
-      ${imagesHtml}
       ${sourceLinksHtml}
+      ${artifactRecordsHtml}
     `;
 
     sidePanel.classList.add("open");
-
-    // 初始化 OpenSeadragon 實例
-    if (properties.images && window.OpenSeadragon) {
-      properties.images.forEach((img, idx) => {
-        if (img.iiif_url) {
-          const container = document.getElementById(`iiif-viewer-${idx}`);
-          if (container) {
-            try {
-              const viewer = OpenSeadragon({
-                id: `iiif-viewer-${idx}`,
-                prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon@4.1.1/build/openseadragon/images/",
-                tileSources: img.iiif_url,
-                showNavigationControl: true,
-                navigationControlAnchor: OpenSeadragon.ControlAnchor.TOP_RIGHT,
-                showNavigator: false
-              });
-              viewer.addHandler("open-failed", () => {
-                degradeIiifCard(container.closest(".image-card"), img);
-                discardOsViewer(viewer);
-              });
-              activeOsViewers.push(viewer);
-            } catch (err) {
-              console.warn("無法載入 IIIF 影像:", err);
-              degradeIiifCard(container.closest(".image-card"), img);
-            }
-          }
-        }
-      });
-    }
   }
 
   function closeSidePanel() {
     sidePanel.classList.remove("open");
-    destroyActiveOsViewers();
   }
 
   if (closePanelBtn) {

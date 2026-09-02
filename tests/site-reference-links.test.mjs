@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const sites = JSON.parse(
@@ -206,17 +206,48 @@ test("site detail labels the sole Stein Gazetteer fallback", () => {
   assert.doesNotMatch(html, /考據資料|斯坦因圖資/);
 });
 
-test("site detail replaces a failed image with its caption and source", () => {
-  assert.equal(typeof siteDetail.renderImageFallback, "function");
+test("site detail exposes artifact cards instead of the retired image fallback API", () => {
+  assert.equal(typeof siteDetail.renderArtifactRecords, "function");
+  assert.equal(siteDetail.renderImageFallback, undefined);
+  assert.equal(siteDetail.replaceImageCard, undefined);
+  assert.equal(siteDetail.replaceFailedImage, undefined);
+});
 
-  const html = siteDetail.renderImageFallback({
-    caption: "尼雅木構宅邸遺構",
-    source: "International Dunhuang Project"
-  });
+test("Loulan uses a local thumbnail and an IDP artifact record", async () => {
+  const loulan = sites.features.find(({ properties }) => properties.id === "loulan-la");
 
-  assert.match(html, /影像目前無法載入/);
-  assert.match(html, /尼雅木構宅邸遺構/);
-  assert.match(html, /International Dunhuang Project/);
+  assert.ok(loulan, "Loulan site record must exist");
+  assert.equal(loulan.properties.images, undefined, "Loulan must not retain the retired image data");
+  assert.ok(Array.isArray(loulan.properties.artifact_records), "Loulan must provide artifact records");
+  assert.deepEqual(loulan.properties.artifact_records, [{
+    title: "String of 25 glass beads of different shapes and colours",
+    image_url: "images/artifacts/loulan-glass-beads.png",
+    record_url: "https://idp.bl.uk/collection/6D85CEDE6B2E4733B2517DE77B53DB20/",
+    source: "International Dunhuang Project (IDP)"
+  }]);
+  await access(new URL("../images/artifacts/loulan-glass-beads.png", import.meta.url));
+});
+
+test("site detail renders artifact records as safe linked cards", () => {
+  assert.equal(typeof siteDetail.renderArtifactRecords, "function");
+
+  const html = siteDetail.renderArtifactRecords([{
+    title: "String of 25 glass beads of different shapes and colours",
+    image_url: "images/artifacts/loulan-glass-beads.png",
+    record_url: "https://idp.bl.uk/collection/6D85CEDE6B2E4733B2517DE77B53DB20/",
+    source: "International Dunhuang Project (IDP)"
+  }]);
+
+  assert.match(html, /相關文物記錄/);
+  assert.match(html, /<a href="https:\/\/idp\.bl\.uk\/collection\/6D85CEDE6B2E4733B2517DE77B53DB20\/" target="_blank" rel="noopener noreferrer"/);
+  assert.match(html, /<img src="images\/artifacts\/loulan-glass-beads\.png" alt="String of 25 glass beads of different shapes and colours"/);
+  assert.match(html, /International Dunhuang Project \(IDP\)/);
+});
+
+test("artifact cards use a wide responsive side panel and contain images", () => {
+  assert.match(styleSource, /\.side-panel\s*\{[\s\S]*?right:\s*-520px;[\s\S]*?width:\s*520px;/);
+  assert.match(styleSource, /\.artifact-record-card img\s*\{[\s\S]*?object-fit:\s*contain;/);
+  assert.match(styleSource, /@media\s*\(max-width:\s*639px\)\s*\{[\s\S]*?\.side-panel\s*\{[\s\S]*?width:\s*calc\(100vw - 16px\);/);
 });
 
 test("site detail rejects a non-http reference scheme", () => {

@@ -58,33 +58,46 @@
       .join("");
   }
 
-  function renderImageFallback(image) {
-    const caption = escapeHtml((image && image.caption) || "未提供影像說明");
-    const source = escapeHtml((image && image.source) || "未提供來源資訊");
-    return `
-      <div class="image-unavailable" role="status">影像目前無法載入</div>
-      <div class="image-caption">${caption}<br><small style="color:#94a3b8">${source}</small></div>`;
-  }
-
-  function replaceImageCard(card, image) {
-    if (card) {
-      card.innerHTML = renderImageFallback(image);
+  function renderArtifactRecords(artifactRecords) {
+    if (!Array.isArray(artifactRecords) || artifactRecords.length === 0) {
+      return "";
     }
-  }
 
-  function replaceFailedImage(imageElement) {
-    if (!imageElement) return;
+    return `
+      <div class="detail-section artifact-records-section">
+        <label>相關文物記錄</label>
+        <div class="artifact-record-gallery">
+          ${artifactRecords
+            .map((record) => {
+              const title = escapeHtml((record && record.title) || "未提供文物題名");
+              const source = escapeHtml((record && record.source) || "未提供來源資訊");
+              const imageUrl = escapeHtml((record && record.image_url) || "");
+              const recordUrl = record && record.record_url;
 
-    replaceImageCard(imageElement.closest(".image-card"), {
-      caption: imageElement.alt,
-      source: imageElement.dataset.source
-    });
+              if (!recordUrl || !isAllowedHttpUrl(recordUrl)) {
+                return `<div class="artifact-record-card">${renderSourceLinks([])}</div>`;
+              }
+
+              const escapedRecordUrl = escapeHtml(recordUrl);
+              const imageHtml = imageUrl
+                ? `<a class="artifact-record-image-link" href="${escapedRecordUrl}" target="_blank" rel="noopener noreferrer"><img src="${imageUrl}" alt="${title}" onerror="this.closest('.artifact-record-image-link').remove()" /></a>`
+                : "";
+              return `
+                <article class="artifact-record-card">
+                  ${imageHtml}
+                  <div class="artifact-record-caption">
+                    <a href="${escapedRecordUrl}" target="_blank" rel="noopener noreferrer">${title}</a>
+                    <small>${source}</small>
+                  </div>
+                </article>`;
+            })
+            .join("")}
+        </div>
+      </div>`;
   }
 
   return {
     renderSourceLinks,
-    renderImageFallback,
-    replaceImageCard,
-    replaceFailedImage
+    renderArtifactRecords
   };
 });

@@ -3,6 +3,7 @@
 Thumbs.db
 *.swp
 *.bak
+node_modules/
 
 # Office 暫存鎖定檔（開啟 xlsx 時產生）
 ~$*
@@ -22,3 +23,4 @@ AGENTS.md
 CLAUDE.md
 GEMINI.md
 
+openspec/.vector-search.db*
