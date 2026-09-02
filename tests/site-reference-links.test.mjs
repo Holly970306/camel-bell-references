@@ -5,6 +5,9 @@ import test from "node:test";
 const sites = JSON.parse(
   await readFile(new URL("../data/sites.geojson", import.meta.url), "utf8")
 );
+const appSource = await readFile(new URL("../js/app.js", import.meta.url), "utf8");
+const styleSource = await readFile(new URL("../css/style.css", import.meta.url), "utf8");
+const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
 
 const retiredUrlPatterns = [
   /dsr\.nii\.ac\.jp\/cgi-bin\/toyobunko\/geta_search\.pl/i,
@@ -157,6 +160,21 @@ test("Chindailik uses DSR coordinates and verified Stein link", () => {
   assert.equal(chindailik.properties.source_links[0].record_url, "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00941.html.en");
 });
 
+test("Cartographic marker category keeps evidence level separate from marker color", () => {
+  const chindailik = sites.features.find(({ properties }) => properties.id === "chindailik");
+  const loulan = sites.features.find(({ properties }) => properties.id === "loulan-la");
+  const arghan = sites.features.find(({ properties }) => properties.id === "arghan-station");
+
+  assert.equal(chindailik.properties.marker_category, "cartographic");
+  assert.equal(chindailik.properties.evidence_level, "text");
+  assert.equal(chindailik.properties.evidence_level_label, "文獻與實地測繪");
+  assert.equal(loulan.properties.marker_category, undefined);
+  assert.equal(arghan.properties.marker_category, undefined);
+  assert.match(appSource, /markerCategory\s*\|\|\s*evidenceLevel/, "標記類別必須優先於考據等級選色");
+  assert.match(styleSource, /\.marker-cartographic\s*\{[\s\S]*?background:\s*#c4b5fd;/, "測繪定位聚落必須使用淺紫色");
+  assert.match(readme, /淺紫色標記.*斯坦因地圖測繪定位聚落/, "README 必須定義淺紫色圖例");
+});
+
 test("site detail renders one labelled Stein Gazetteer record link", () => {
   assert.equal(typeof siteDetail.renderSourceLinks, "function");
 
@@ -199,4 +217,55 @@ test("site detail replaces a failed image with its caption and source", () => {
   assert.match(html, /影像目前無法載入/);
   assert.match(html, /尼雅木構宅邸遺構/);
   assert.match(html, /International Dunhuang Project/);
+});
+
+test("site detail rejects a non-http reference scheme", () => {
+  const html = siteDetail.renderSourceLinks([{
+    label: "斯坦因地名記錄",
+    url: "javascript:alert(1)",
+    record_url: "javascript:alert(1)",
+    fallback_url: "javascript:alert(1)",
+    status: "verified"
+  }]);
+
+  assert.match(html, /目前無可用公開連結/);
+  assert.doesNotMatch(html, /<a\s/);
+  assert.doesNotMatch(html, /javascript:/);
+});
+
+test("site detail still renders http and https reference destinations", () => {
+  for (const scheme of ["https://dsr.nii.ac.jp/example.html", "http://dsr.nii.ac.jp/example.html"]) {
+    const html = siteDetail.renderSourceLinks([{
+      label: "公開參考資料",
+      url: scheme,
+      record_url: scheme,
+      fallback_url: steinGazetteerIndex,
+      status: "verified"
+    }]);
+
+    assert.match(html, /<a /, `${scheme} 應輸出連結`);
+    assert.match(html, /target="_blank"/, `${scheme} 應在新分頁開啟`);
+    assert.match(html, /rel="noopener noreferrer"/, `${scheme} 應帶 rel 保護`);
+  }
+});
+
+test("tile attribution and README use the current HTTPS Stein entry point", async () => {
+  const retired = "http://dsr.nii.ac.jp/toyobunko/";
+  for (const relPath of ["../js/app.js", "../README.md"]) {
+    const text = await readFile(new URL(relPath, import.meta.url), "utf8");
+    assert.ok(!text.includes(retired), `${relPath} 不應再含已淘汰的 ${retired}`);
+    assert.ok(
+      text.includes(steinGazetteerIndex),
+      `${relPath} 應改指向 ${steinGazetteerIndex}`
+    );
+  }
+});
+
+test("README directs local preview through the no-cache server on port 8001", async () => {
+  const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
+
+  assert.match(readme, /start_map\.bat/, "README 應指示使用專案的預覽啟動檔");
+  assert.match(readme, /http:\/\/localhost:8001/, "README 應使用無快取預覽伺服器的 8001 埠");
+  assert.doesNotMatch(readme, /python -m http\.server 8000/, "README 不應再建議會快取資料的舊伺服器指令");
+  assert.doesNotMatch(readme, /http:\/\/localhost:8000/, "README 不應再指向舊的 8000 埠");
 });

@@ -356,6 +356,11 @@ header h1 {
   background: #3b82f6;
 }
 
+.marker-cartographic {
+  background: #c4b5fd;
+  color: #1e293b;
+}
+
 /* Leaflet 控制項暗色系主題適配 */
 .leaflet-bar {
   border: 1px solid #334155 !important;
@@ -404,6 +409,7 @@ header h1 {
   background: rgba(30, 41, 59, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-sizing: border-box;
   border: 1px solid #334155;
   border-radius: 16px;
   padding: 36px 32px;
@@ -425,8 +431,23 @@ header h1 {
 }
 
 .auth-icon {
-  font-size: 2.8rem;
+  color: #c4b5fd;
+  display: flex;
+  justify-content: center;
   margin-bottom: 12px;
+}
+
+.auth-camel-icon {
+  display: block;
+  height: auto;
+  width: 5rem;
+}
+
+.header-camel-icon {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  width: 2rem;
 }
 
 .auth-title {
@@ -451,6 +472,7 @@ header h1 {
 
 .auth-input {
   flex: 1;
+  min-width: 0;
   background: #0f172a;
   border: 1px solid #475569;
   border-radius: 8px;
@@ -467,6 +489,7 @@ header h1 {
 }
 
 .auth-btn {
+  flex-shrink: 0;
   background: #0284c7;
   color: #fff;
   border: none;
@@ -474,6 +497,7 @@ header h1 {
   padding: 10px 18px;
   font-size: 0.95rem;
   font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }

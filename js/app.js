@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 修正 DSR 斯坦因圖磚 CGI 格式 URL
   const serindiaTileUrl = "https://dsr.nii.ac.jp/cgi-bin/map/tile.pl?t=s&z={z}&x={x}&y={y}";
   const serindiaLayer = L.tileLayer(serindiaTileUrl, {
-    attribution: "&copy; <a href='http://dsr.nii.ac.jp/toyobunko/'>Digital Silk Road (DSR)</a> / NII",
+    attribution: "&copy; <a href='https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en' target='_blank' rel='noopener noreferrer'>Digital Silk Road (DSR)</a> / NII",
     minZoom: 5,
     maxZoom: 12,
     opacity: 0.7,
@@ -155,9 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let routesData = null;
   let activeOsViewers = [];
 
-  function createCustomIcon(evidenceLevel, label) {
+  function createCustomIcon(evidenceLevel, label, markerCategory) {
+    const markerClass = markerCategory || evidenceLevel;
     return L.divIcon({
-      className: `custom-marker marker-${evidenceLevel}`,
+      className: `custom-marker marker-${markerClass}`,
       html: `<span>${label}</span>`,
       iconSize: [26, 26],
       iconAnchor: [13, 13]
@@ -169,11 +170,77 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidePanelBody = document.getElementById("side-panel-body");
   const sidePanelTitle = document.getElementById("side-panel-title");
   const closePanelBtn = document.getElementById("close-panel-btn");
-  const siteDetail = window.SiteDetail;
+  // 側欄渲染模組缺席時的最小備援：只求可讀、不求樣式一致
+  function buildFallbackSiteDetail() {
+    const linkUnavailable = '<div class="source-link-item source-link-unavailable">目前無可用公開連結</div>';
+    const imageUnavailable = '<div class="image-unavailable" role="status">影像目前無法載入</div>';
+    return {
+      renderSourceLinks: () => linkUnavailable,
+      renderImageFallback: () => imageUnavailable,
+      replaceImageCard: (card) => {
+        if (card) card.innerHTML = imageUnavailable;
+      },
+      replaceFailedImage: () => {}
+    };
+  }
+
+  let warnedMissingSiteDetail = false;
+
+  // 每次使用前取值，避免載入順序或部署問題造成的一次性硬相依
+  function getSiteDetail() {
+    if (window.SiteDetail) return window.SiteDetail;
+    if (!warnedMissingSiteDetail) {
+      console.warn("js/site-detail.js 未載入，側欄改用最小備援輸出。");
+      warnedMissingSiteDetail = true;
+    }
+    return buildFallbackSiteDetail();
+  }
+
+  // 行內 onerror 的薄包裝：在全域範圍執行，無法存取 getSiteDetail 以外的閉包
+  window.handleMapImageError = function (imageElement) {
+    const detail = getSiteDetail();
+    if (detail && typeof detail.replaceFailedImage === "function") {
+      detail.replaceFailedImage(imageElement);
+    }
+  };
 
   function destroyActiveOsViewers() {
-    activeOsViewers.forEach((viewer) => viewer.destroy());
+    activeOsViewers.forEach((viewer) => {
+      try {
+        viewer.destroy();
+      } catch (err) {
+        console.warn("OpenSeadragon 檢視器銷毀失敗:", err);
+      }
+    });
     activeOsViewers = [];
+  }
+
+  function discardOsViewer(viewer) {
+    const index = activeOsViewers.indexOf(viewer);
+    if (index !== -1) activeOsViewers.splice(index, 1);
+    try {
+      viewer.destroy();
+    } catch (err) {
+      console.warn("OpenSeadragon 檢視器銷毀失敗:", err);
+    }
+  }
+
+  // 一般圖檔卡片內容，供初次渲染與 IIIF 失敗降級共用
+  function plainImageCardInner(img) {
+    return `
+      <img src="${img.url}" alt="${img.caption || ''}" data-source="${img.source || ''}" onerror="window.handleMapImageError(this)" />
+      <div class="image-caption">${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small></div>
+    `;
+  }
+
+  // IIIF 失敗時的降級：有一般圖檔就改用一般圖檔，否則落到文字佔位
+  function degradeIiifCard(card, img) {
+    if (!card) return;
+    if (img && img.url) {
+      card.innerHTML = plainImageCardInner(img);
+    } else {
+      getSiteDetail().replaceImageCard(card, img);
+    }
   }
 
   function openSidePanel(properties) {
@@ -202,14 +269,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   `;
                 } else if (img.url) {
-                  return `
-                    <div class="image-card">
-                      <img src="${img.url}" alt="${img.caption || ''}" data-source="${img.source || ''}" onerror="window.SiteDetail.replaceFailedImage(this)" />
-                      <div class="image-caption">${img.caption || ''} <br><small style="color:#94a3b8">${img.source || ''}</small></div>
-                    </div>
-                  `;
+                  return `<div class="image-card">${plainImageCardInner(img)}</div>`;
                 }
-                return `<div class="image-card">${siteDetail.renderImageFallback(img)}</div>`;
+                return `<div class="image-card">${getSiteDetail().renderImageFallback(img)}</div>`;
               })
               .join("")}
           </div>
@@ -222,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sourceLinksHtml = `
         <div class="detail-section">
           <label>考據文獻與資料庫出處</label>
-          ${siteDetail.renderSourceLinks(properties.source_links)}
+          ${getSiteDetail().renderSourceLinks(properties.source_links)}
         </div>
       `;
     }
@@ -278,12 +340,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 showNavigator: false
               });
               viewer.addHandler("open-failed", () => {
-                siteDetail.replaceImageCard(container.closest(".image-card"), img);
+                degradeIiifCard(container.closest(".image-card"), img);
+                discardOsViewer(viewer);
               });
               activeOsViewers.push(viewer);
             } catch (err) {
               console.warn("無法載入 IIIF 影像:", err);
-              siteDetail.replaceImageCard(container.closest(".image-card"), img);
+              degradeIiifCard(container.closest(".image-card"), img);
             }
           }
         }
@@ -316,7 +379,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const label = p.stein_id || p.name_zh.substring(0, 2);
-        const markerIcon = createCustomIcon(p.evidence_level || "artifact", label);
+        const markerIcon = createCustomIcon(
+          p.evidence_level || "artifact",
+          label,
+          p.marker_category
+        );
         const marker = L.marker([lat, lng], { icon: markerIcon });
         marker.bindTooltip(`<strong>${p.name_zh}</strong><br>${p.period ? p.period.description : ''}`, {
           direction: "top",

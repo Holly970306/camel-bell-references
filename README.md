@@ -10,6 +10,7 @@
 - **遺址考據分級標註**：
   - 🟢 **綠色標記**：出土實物佐證遺址（如樓蘭 LA 漢晉木牘、尼雅 N.xiv 佉盧文木牘、米蘭 M.I 翼狀天使壁畫等）。
   - 🔵 **藍色標記**：文獻記載古國與驛站（如且末、若羌、于闐等）。
+  - **淺紫色標記**：斯坦因地圖測繪定位聚落（目前為阿蘭的家 Chindailik）。
 - **古水系與商道變遷**：
   - 標註古孔雀河故道、古塔里木河、古尼雅河故道與羅布泊古湖面（蒲昌海）。
   - 繪製絲綢之路南道、中北道以及庫爾勒－若羌沙漠穿越道。
@@ -40,16 +41,16 @@
 
 本專案採純前端架構（Local-first），無需安裝後端服務或資料庫：
 
-1. 透過任何靜態檔案伺服器開啟（例如 VS Code Live Server 或 Python 簡易伺服器）：
+1. 雙擊專案根目錄的 `start_map.bat`，啟動內建的本機預覽伺服器：
    ```powershell
-   python -m http.server 8000
+   .\start_map.bat
    ```
-2. 開啟瀏覽器訪問 `http://localhost:8000` 即可預覽。
+2. 瀏覽器會自動開啟 `http://localhost:8001`；此伺服器會停用快取，因此修改資料或程式後直接重新整理頁面即可看到更新。
 
 ---
 
 ## 授權與引用聲明
 
-- 歷史地圖圖磚來源：[Digital Silk Road (DSR) Project](http://dsr.nii.ac.jp/toyobunko/) / National Institute of Informatics (NII), Japan.
+- 歷史地圖圖磚來源：Digital Silk Road (DSR) Project / National Institute of Informatics (NII), Japan。地名考據入口為 [斯坦因地名索引](https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en)。
 - 衛星底圖來源：Esri, USGS, GIS User Community.
 

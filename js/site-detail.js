@@ -17,6 +17,16 @@
     })[character]);
   }
 
+  const ALLOWED_LINK_PROTOCOLS = new Set(["https:", "http:"]);
+
+  function isAllowedHttpUrl(value) {
+    try {
+      return ALLOWED_LINK_PROTOCOLS.has(new URL(String(value)).protocol);
+    } catch (err) {
+      return false;
+    }
+  }
+
   function renderSourceLinks(sourceLinks) {
     if (!Array.isArray(sourceLinks) || sourceLinks.length === 0) {
       return '<div class="source-link-item source-link-unavailable">目前無可用公開連結</div>';
@@ -31,7 +41,7 @@
         const usableStatus = status === "verified" || status === "fallback";
         const destination = usableStatus && primaryUrl ? primaryUrl : fallbackUrl;
 
-        if (!destination) {
+        if (!destination || !isAllowedHttpUrl(destination)) {
           return '<div class="source-link-item source-link-unavailable">目前無可用公開連結</div>';
         }
 
