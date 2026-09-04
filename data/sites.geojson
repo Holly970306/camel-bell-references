@@ -15,7 +15,9 @@
         "id": "loulan-la",
         "name_zh": "樓蘭古城（LA）",
         "name_en": "Loulan Ancient City",
-        "search_aliases": ["Lou-lan"],
+        "search_aliases": [
+          "Lou-lan"
+        ],
         "name_kharosthi": "Kroraimna (𐨐𐨿𐨪𐨆𐨪𐨀𐨁𐨣)",
         "stein_id": "LA",
         "period": {
@@ -28,21 +30,77 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於羅布泊西北岸。斯坦因在此發現三間房官署遺址、佛塔殘跡及大量漢文、佉盧文木牘。水系改道（孔雀河支流乾涸）被視為古城廢棄主因。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Lou-lan",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Lou-lan",
-          "record_title": "Lou-lan Site",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03151.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Lou-lan",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Lou-lan",
+            "record_title": "Lou-lan Site",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03151.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "artifact_records": [
           {
             "title": "String of 25 glass beads of different shapes and colours",
             "image_url": "images/artifacts/loulan-glass-beads.png",
             "record_url": "https://idp.bl.uk/collection/6D85CEDE6B2E4733B2517DE77B53DB20/",
             "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "basket",
+            "image_url": "images/artifacts/loulan_basket.png",
+            "record_url": "https://idp.bl.uk/collection/A25AF3B62E6049ED925BFBCD4A1F5D66/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "Lamp made of clay",
+            "image_url": "images/artifacts/loulan_Lamp made of clay.png",
+            "record_url": "https://idp.bl.uk/collection/6D181214CC2A458FADDEAE6136B8F6F4/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "Small wooden comb",
+            "image_url": "images/artifacts/loulan_Small wooden comb.png",
+            "record_url": "https://idp.bl.uk/collection/0D4245613C8C4842B3EFBCA0ADE5DFA3/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "A shoe",
+            "image_url": "images/artifacts/loulan_shoe.png",
+            "record_url": "https://idp.bl.uk/collection/8D6A6F5BDD934B85A23FE881BFC63EDB/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "cupboard",
+            "image_url": "images/artifacts/loulan_cupboard.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-710",
+            "source": "The British Museum"
+          },
+          {
+            "title": "佛塔",
+            "image_url": "images/artifacts/loulan_stupa.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-706",
+            "source": "The British Museum"
+          },
+          {
+            "title": "Male face with a caduceus",
+            "image_url": "images/artifacts/loulan_Male_face.jpg",
+            "record_url": "https://zh.wikipedia.org/wiki/File:Male_face_with_a_caduceus_-_Google_Art_Project.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "半袖袍",
+            "image_url": "images/artifacts/loulan_half.jpg",
+            "record_url": "https://www.facebook.com/share/p/1EU6erwxjh/",
+            "source": "Xinjiang Uygur Autonomous Region Institute of Cultural Relics and Archaeology"
+          },
+          {
+            "title": "Loulan tomb mural",
+            "image_url": "images/artifacts/loulan_Mural_Tomb.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Loulan_Mural_Tomb_(mural).jpg",
+            "source": "Wiki"
           }
         ]
       }
@@ -73,15 +131,115 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於尼雅河尾閭三角洲，古代精絕國故地。出土大量佉盧文木牘、封泥、漢晉絲織品（包含『五星出東方利中國』錦護膊）與完整的民居、果園、佛寺庭院遺存。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Niya Site",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Niya%20Site",
-          "record_title": "Niya Site",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03415.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }]
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Niya Site",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Niya%20Site",
+            "record_title": "Niya Site",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03415.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "artifact_records": [
+          {
+            "title": "table",
+            "image_url": "images/artifacts/niya_table.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_1907-1111-85",
+            "source": "The British Museum"
+          },
+          {
+            "title": "panel",
+            "image_url": "images/artifacts/niya_panel.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-535",
+            "source": "The British Museum"
+          },
+          {
+            "title": "figure",
+            "image_url": "images/artifacts/niya_figure.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-556",
+            "source": "The British Museum"
+          },
+          {
+            "title": "chair",
+            "image_url": "images/artifacts/niya_chair.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_1907-1111-92?selectedImageId=9188003",
+            "source": "The British Museum"
+          },
+          {
+            "title": "seal",
+            "image_url": "images/artifacts/niya_seal.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-524?selectedImageId=1141681001",
+            "source": "The British Museum"
+          },
+          {
+            "title": "batik",
+            "image_url": "images/artifacts/Niya_batik.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Niya_batik.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "Niya site",
+            "image_url": "images/artifacts/Niya_BLP164_PHOTO392_34_165.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Niya_BLP164_PHOTO392_34_165.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "精絕王",
+            "image_url": "images/artifacts/niya_king.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/0/728da9773912b31bb051553ec54d217adab44aed4bd4#aid=0&pic=728da9773912b31bb051553ec54d217adab44aed4bd4",
+            "source": "百度百科"
+          },
+          {
+            "title": "Niya site",
+            "image_url": "images/artifacts/niya_site02.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/4298920770/d058ccbf6c81800a19d8f316f26024fa828ba61ee9d4?fr=newalbum&fromModule=album#aid=4298920770&pic=d058ccbf6c81800a19d8f316f26024fa828ba61ee9d4",
+            "source": "百度百科"
+          },
+          {
+            "title": "Niya hat",
+            "image_url": "images/artifacts/niya_hat01.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/4298920771/dcc451da81cb39dbb6fd2c4e93431e24ab18972b9ad4?fr=newalbum&fromModule=album#aid=4298920771&pic=dcc451da81cb39dbb6fd2c4e93431e24ab18972b9ad4",
+            "source": "百度百科"
+          },
+          {
+            "title": "Niya hat",
+            "image_url": "images/artifacts/niya_hat02.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/4298920771/dcc451da81cb39dbb6fd2c4e93431e24ab18972b9ad4?fr=newalbum&fromModule=album#aid=4298920771&pic=80cb39dbb6fd5266d016890ce84d802bd40735fa98d4",
+            "source": "百度百科"
+          },
+          {
+            "title": "黃袍",
+            "image_url": "images/artifacts/niya_dress01.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/4298920771/dcc451da81cb39dbb6fd2c4e93431e24ab18972b9ad4?fr=newalbum&fromModule=album#aid=4298920771&pic=38dbb6fd5266d01609242a30d47ec30735fae6cd9fd4",
+            "source": "百度百科"
+          },
+          {
+            "title": "綠袍",
+            "image_url": "images/artifacts/niya_dress02.png",
+            "record_url": "https://baike.baidu.com/pic/%E5%B0%BC%E9%9B%85%E9%81%97%E5%9D%80/770953/4298920771/dcc451da81cb39dbb6fd2c4e93431e24ab18972b9ad4?fr=newalbum&fromModule=album#aid=4298920771&pic=5366d0160924ab18972b572f76aff1cd7b899e519dd4",
+            "source": "百度百科"
+          },
+          {
+            "title": "精絕貴族",
+            "image_url": "images/artifacts/niya_people.jpg",
+            "record_url": "https://wapbaike.baidu.com/tashuo/browse/content?id=a243ebc29b54f92066d6c7a2",
+            "source": "百度百科"
+          },
+          {
+            "title": "精絕五星",
+            "image_url": "images/artifacts/niya_5star.jpg",
+            "record_url": "https://wapbaike.baidu.com/tashuo/browse/content?id=a243ebc29b54f92066d6c7a2",
+            "source": "百度百科"
+          },
+          {
+            "title": "尼雅房子",
+            "image_url": "images/artifacts/niya_house.jpg",
+            "record_url": "https://wapbaike.baidu.com/tashuo/browse/content?id=a243ebc29b54f92066d6c7a2",
+            "source": "百度百科"
+          }
+        ]
       }
     },
     {
@@ -98,7 +256,9 @@
         "id": "miran-fort",
         "name_zh": "米蘭遺址（M.I / M.II）",
         "name_en": "Miran Site",
-        "search_aliases": ["Mīrān"],
+        "search_aliases": [
+          "Mīrān"
+        ],
         "name_kharosthi": "Miran",
         "stein_id": "M.I",
         "period": {
@@ -112,16 +272,80 @@
         "rights_label": "公有領域 / 學術引用",
         "coordinate_source": "Digital Silk Road KMZ: miran",
         "description": "座標校準至 DSR KMZ 所列米蘭考古遺址點，而非現代若羌周邊城鎮。絲綢之路南道重鎮，出土帶翼天使壁畫、吐蕃古戍堡與灌溉渠道系統。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Mīrān",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=M%C4%ABr%C4%81n",
-          "record_title": "Mīrān Fort",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03292.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Mīrān",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=M%C4%ABr%C4%81n",
+            "record_title": "Mīrān Fort",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03292.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "Miran fresco",
+            "image_url": "images/artifacts/Miran_fresco_12.jpg",
+            "record_url": "https://en.wikipedia.org/wiki/File:Miran_fresco_12.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "Stupa",
+            "image_url": "images/artifacts/Miran_BLP466_PHOTO1187_2_165.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Miran_BLP466_PHOTO1187_2_165.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "Bodhisattva",
+            "image_url": "images/artifacts/miran_Bodhisattva.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_1928-1022-9?selectedImageId=1133145001",
+            "source": "The British Museum"
+          },
+          {
+            "title": "armour",
+            "image_url": "images/artifacts/miran_armour.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-621?selectedImageId=249099001",
+            "source": "The British Museum"
+          },
+          {
+            "title": "arrow",
+            "image_url": "images/artifacts/miran_arrow.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_MAS-626",
+            "source": "The British Museum"
+          },
+          {
+            "title": "Buddha",
+            "image_url": "images/artifacts/miran_Buddha_with_Six_Disciples.png",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Buddha_with_Six_Disciples.png",
+            "source": "Wiki"
+          },
+          {
+            "title": "two women",
+            "image_url": "images/artifacts/miran_twoLadies.png",
+            "record_url": "https://en.wikipedia.org/wiki/Miran_(Xinjiang)#/media/File:Ladies_of_Miran.png",
+            "source": "Wiki"
+          },
+          {
+            "title": "BUDDHIST SHRINE",
+            "image_url": "images/artifacts/miran_BUDDHIST SHRINE.jpg",
+            "record_url": "https://archive.org/details/ruinsofdesertcat01stei/page/n738/mode/1up",
+            "source": "Wiki"
+          },
+          {
+            "title": "Ink seal",
+            "image_url": "images/artifacts/miran_inkseal.png",
+            "record_url": "https://idp.bl.uk/collection/32C8EE750DEE417BA9B9F6BE291061ED/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "cotton fabric lotuses",
+            "image_url": "images/artifacts/miran_cotton fabric lotuses.png",
+            "record_url": "https://idp.bl.uk/collection/62FC16D8652D4031A94F83445C1D18C1/",
+            "source": "International Dunhuang Project (IDP)"
+          }
+        ]
       }
     },
     {
@@ -138,7 +362,9 @@
         "id": "endere-fort",
         "name_zh": "安迪爾古城（E.i）",
         "name_en": "Endere Site",
-        "search_aliases": ["Endere"],
+        "search_aliases": [
+          "Endere"
+        ],
         "name_kharosthi": "Endere",
         "stein_id": "E.i",
         "period": {
@@ -152,16 +378,38 @@
         "rights_label": "劇組內部考據",
         "coordinate_source": "Digital Silk Road KMZ: endere",
         "description": "座標校準至 DSR KMZ 所列安迪爾沙漠古城遺址點，而非較北的現代安迪爾聚落。位於安迪爾河下游，為唐代安迪爾古戌堡。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Endere",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Endere",
-          "record_title": "Endere",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/01284.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Endere",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Endere",
+            "record_title": "Endere",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/01284.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "Stupa",
+            "image_url": "images/artifacts/Endere_Stupa.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Endere_Stupa_BLP467_PHOTO1187_2_172.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "dice",
+            "image_url": "images/artifacts/Endere_dice.png",
+            "record_url": "https://www.britishmuseum.org/collection/object/A_1907-1111-144",
+            "source": "The British Museum"
+          },
+          {
+            "title": "Pillars",
+            "image_url": "images/artifacts/Endere_Pillars.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Endere_BLP209_PHOTO392_26_197.jpg",
+            "source": "Wiki"
+          }
+        ]
       }
     },
     {
@@ -178,7 +426,9 @@
         "id": "dunhuang-mogao",
         "name_zh": "敦煌（莫高窟 / 陽關玉門關起點）",
         "name_en": "Dunhuang",
-        "search_aliases": ["Tun-huang"],
+        "search_aliases": [
+          "Tun-huang"
+        ],
         "name_kharosthi": "Dhriṁhaṇa",
         "stein_id": "T.xix",
         "period": {
@@ -191,15 +441,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "絲路咽喉總樞紐。斯坦因在此發現藏經洞萬卷文書、古漢簡與佛畫。西出陽關通南道、出玉門關通北道。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Tun-huang",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Tun-huang",
-          "record_title": "Tun-huang",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/04828.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Tun-huang",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Tun-huang",
+            "record_title": "Tun-huang",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/04828.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -230,16 +482,74 @@
         "rights_label": "公有領域 / 學術引用",
         "coordinate_source": "Digital Silk Road KMZ: yotkan",
         "description": "座標校準至 DSR KMZ 所列約特干（Yotkan）考古遺址，而非現代和田市中心。絲路南道著名佛教古國與和田美玉產地，出土大量漢佉二體錢、希臘化風格陶塑與佛教木版畫。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Yotkan",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Yotkan",
-          "record_title": "Yotkan",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/05384.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Yotkan",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Yotkan",
+            "record_title": "Yotkan",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/05384.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "figurine",
+            "image_url": "images/artifacts/yotkan_figurine.png",
+            "record_url": "https://idp.bl.uk/collection/4D36D9C04BC04AEF89AF9B8C2DB385CE/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "King",
+            "image_url": "images/artifacts/yotkan_Khotan_king.JPG",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Khotan_king.JPG",
+            "source": "Wiki"
+          },
+          {
+            "title": "Yoktan clay figure",
+            "image_url": "images/artifacts/Yoktan clay figure.png",
+            "record_url": "https://idp.bl.uk/collection/08D98152DCDA46E3884648F25E01DE2D/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "figurine",
+            "image_url": "images/artifacts/yotkan_figurine02.png",
+            "record_url": "https://idp.bl.uk/collection/009F1328AF40461DBB5BA9E013D9568D/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "boar",
+            "image_url": "images/artifacts/Yotkan_boar.png",
+            "record_url": "https://idp.bl.uk/collection/233655BF4FCA43AA88D07E188599591B/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "Lion's face",
+            "image_url": "images/artifacts/Yotkan_lionface.png",
+            "record_url": "https://idp.bl.uk/collection/6D61CB1337B840D1AD67454C080901EC/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "camel",
+            "image_url": "images/artifacts/Yotkan_camel.png",
+            "record_url": "https://idp.bl.uk/collection/D65E6A4E7F05427B897E28AD7A79F675/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "Monkey",
+            "image_url": "images/artifacts/Yotkan_monkey01.png",
+            "record_url": "https://idp.bl.uk/collection/4CD6724FD10B4650BEEB14EA6C81ACBE/",
+            "source": "International Dunhuang Project (IDP)"
+          },
+          {
+            "title": "Monkey",
+            "image_url": "images/artifacts/Yotkan_monkey02.png",
+            "record_url": "https://idp.bl.uk/collection/4CA0178BB51E41C696EC85C460CFD896/",
+            "source": "International Dunhuang Project (IDP)"
+          }
+        ]
       }
     },
     {
@@ -275,15 +585,17 @@
         "rights_label": "公有領域 / 學術引用",
         "coordinate_source": "使用者確認 GPS：42.8004456, 89.497286",
         "description": "吐魯番盆地核心古城，曾為高昌國都城及唐代西州治所。斯坦因與黃文弼均在此發掘大量漢文、粟特文文書與壁畫。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Kosh-gumbaz",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Kosh-gumbaz",
-          "record_title": "Kosh-gumbaz (of Turfān)",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/02745.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Kosh-gumbaz",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Kosh-gumbaz",
+            "record_title": "Kosh-gumbaz (of Turfān)",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/02745.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -321,15 +633,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "西漢昭帝元鳳四年（前77年）傅介子刺樓蘭王安歸後，更國名為『鄯善』，王城自羅布泊北岸樓蘭遷至南麓扺洹城（若羌）。為絲路南道、南北穿越道及通往青海羌中道之重要樞紐。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Charkhlik",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Charkhlik",
-          "record_title": "Charkhlik",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00794.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Charkhlik",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Charkhlik",
+            "record_title": "Charkhlik",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00794.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -365,15 +679,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "車爾臣河下游綠洲要衝，漢代且末國故地，後併入鄯善國。出土著名扎滾魯克古墓群彩繪毛織品、箜篌樂器與佉盧文簡牘，為南道核心綠洲重鎮。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Charchan",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Charchan",
-          "record_title": "Charchan",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00784.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Charchan",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Charchan",
+            "record_title": "Charchan",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00784.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -410,15 +726,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "斯坦因於克里雅河下游乾涸尾閭沙漠腹地發掘之漢晉古城與佛寺。保存了新疆境內年代最早之佛教回廊回字形佛殿與犍陀羅風格彩繪壁畫。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Kara-dong",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Kara-dong",
-          "record_title": "Kara-dong (on Keriya R.) ",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/01967.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Kara-dong",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Kara-dong",
+            "record_title": "Kara-dong (on Keriya R.) ",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/01967.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -456,16 +774,32 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位于和田沙漠東北緣，斯坦因發掘之極具代表性的犍陀羅覆缽式大型佛塔與院落。出土數十尊大型彩繪高浮雕泥塑佛像、菩薩像群與漢佉二體錢。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Rawak",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Rawak",
-          "record_title": "Rawak Stūpa",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03731.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Rawak",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Rawak",
+            "record_title": "Rawak Stūpa",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/03731.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "Stupa",
+            "image_url": "images/artifacts/Rawak_Temple_01.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Rawak_Temple_01.jpg",
+            "source": "Wiki"
+          },
+          {
+            "title": "Stupa",
+            "image_url": "images/artifacts/Rawak_BLP170_PHOTO392_26_154.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Rawak_BLP170_PHOTO392_26_154.jpg",
+            "source": "Wiki"
+          }
+        ]
       }
     },
     {
@@ -504,15 +838,17 @@
         "rights_label": "公有領域 / 學術引用",
         "coordinate_source": "Digital Silk Road KMZ: waxxari",
         "description": "位於若羌西南約 78 公里之瓦石峽河下游綠洲，為古代絲路南道必經之屯田聚落。斯坦因在此調查古城址與陶窯、冶鐵遺址，出土漢魏至唐宋陶片、石磨與金屬冶煉殘渣。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Vāsh-shahri",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=V%C4%81sh-shahri",
-          "record_title": "Vāsh-shahri ruins",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06033.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Vāsh-shahri",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=V%C4%81sh-shahri",
+            "record_title": "Vāsh-shahri ruins",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06033.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -522,7 +858,7 @@
         "type": "Point",
         "coordinates": [
           89.68111,
-          40.08750
+          40.0875
         ]
       },
       "properties": {
@@ -553,15 +889,17 @@
         "rights_label": "公有領域 / 學術引用",
         "coordinate_source": "Digital Silk Road KMZ: lk",
         "description": "距若羌東北約 176 公里，位於羅布泊西南荒原與古河道旁。斯坦因編號為 L.K.，亦被部分學者考為魏晉海頭故城。遺址包含土坯壘砌之方形戍堡、烽燧與民居遺跡，出土漢晉簡牘與絲織殘片。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "L. K",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=L.+K",
-          "record_title": "L. K",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06487.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "L. K",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=L.+K",
+            "record_title": "L. K",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06487.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -599,15 +937,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於若羌以北約 220 公里，為孔雀河下游南岸古代交通咽喉。斯坦因曾在此勘察圓形古城垣與佛寺，出土著名的『紅地對人獸樹紋雙面罽袍』等多重文化交融之織錦、木器與泥塑。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Ying-p'an",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Ying-p'an",
-          "record_title": "Ying-p'an site",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06034.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Ying-p'an",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Ying-p'an",
+            "record_title": "Ying-p'an site",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06034.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -646,15 +986,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "距若羌東北約 248 公里，位於羅布泊北岸雅丹台地之上。為西漢進入樓蘭地區的重要古碼頭與驛站據點，出土大量漢代木簡、銅鏃、陶器及絲綢殘片，證實為西漢絲路樓蘭古道關鍵物資轉運站。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "L. G ",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=L.+G+",
-          "record_title": "L. G ",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06461.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "L. G ",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=L.+G+",
+            "record_title": "L. G ",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/06461.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -694,15 +1036,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於若羌以北約 98 公里，地處庫爾勒－若羌沙漠穿越道路線中段、古塔里木河下游河道與蘆葦水潭交會處。為古代駝隊橫越塔里木沙漠東緣最核心的飲水休整營地，斯坦因與斯文赫定探險隊均曾在此設立基準補給大營。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Arghan",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Arghan",
-          "record_title": "Arghan (of Charkhlik)",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00322.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Arghan",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Arghan",
+            "record_title": "Arghan (of Charkhlik)",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00322.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -740,15 +1084,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "距若羌東北約 152 公里，座落於孔雀河下游古三角洲沙丘之中。出土著名的船棺、多層立柱木樁、草編織物、毛織斗篷與乾屍，為羅布荒原極具代表性的早期文明地標，見證古孔雀河水系的豐沛與生態變遷。",
-        "source_links": [{
-          "label": "公開參考資料",
-          "search_term": null,
-          "url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
-          "record_title": "Xiaohe Cemetery",
-          "record_url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
-          "fallback_url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "公開參考資料",
+            "search_term": null,
+            "url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
+            "record_title": "Xiaohe Cemetery",
+            "record_url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
+            "fallback_url": "https://en.wikipedia.org/wiki/Xiaohe_Cemetery",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -785,16 +1131,26 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於敦煌西南約 70 公里古董灘一帶，為西漢武帝『列四郡、據兩關』所設西陲南隘。《漢書・西域傳》記載『自玉門、陽關出南道者，行鄯善』。商隊使團西出陽關後沿阿爾金山山前泉水帶直奔米蘭與鄯善。",
-        "source_links": [{
-          "label": "公開參考資料",
-          "search_term": null,
-          "url": "https://en.wikipedia.org/wiki/Yang_Pass",
-          "record_title": "Yang Pass",
-          "record_url": "https://en.wikipedia.org/wiki/Yang_Pass",
-          "fallback_url": "https://en.wikipedia.org/wiki/Yang_Pass",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "公開參考資料",
+            "search_term": null,
+            "url": "https://en.wikipedia.org/wiki/Yang_Pass",
+            "record_title": "Yang Pass",
+            "record_url": "https://en.wikipedia.org/wiki/Yang_Pass",
+            "fallback_url": "https://en.wikipedia.org/wiki/Yang_Pass",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "陽關山塔防遺跡",
+            "image_url": "images/artifacts/Yangguan.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Yangguan.jpg",
+            "source": "Wiki"
+          }
+        ]
       }
     },
     {
@@ -832,16 +1188,26 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於敦煌西北約 90 公里，為漢代通西域北道、中道（經樓蘭）之關鍵隘口。斯坦因編號為 T.xiv，在此出土漢簡確證為漢玉門關遺址。扼疏勒河下游咽喉，為漢代長城烽燧防禦體系西端起點。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Yü-mên",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Y%C3%BC-m%C3%AAn",
-          "record_title": "Yü-mên",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/05387.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
-        "images": []
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Yü-mên",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Y%C3%BC-m%C3%AAn",
+            "record_title": "Yü-mên",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/05387.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
+        "images": [],
+        "artifact_records": [
+          {
+            "title": "小方盤城",
+            "image_url": "images/artifacts/yumenguan_smaill.jpg",
+            "record_url": "https://commons.wikimedia.org/wiki/File:Dunhuang.yumenguan.jpg",
+            "source": "Wiki"
+          }
+        ]
       }
     },
     {
@@ -880,15 +1246,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於阿爾金山北麓山前沖積扇帶，庫姆塔格沙漠南緣。自陽關西進米蘭（鄯善）約 400 餘里之荒磧通道中，為商隊與使節沿山避開羅布泊鹽澤流沙之極關鍵淡水泉水補給點，法顯西行與斯坦因考查均曾取道於此。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Ak-tāgh-bulak",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Ak-t%C4%81gh-bulak",
-          "record_title": "Ak-tāgh-bulak",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00158.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Ak-tāgh-bulak",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Ak-t%C4%81gh-bulak",
+            "record_title": "Ak-tāgh-bulak",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00158.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     },
@@ -925,15 +1293,17 @@
         "rights": "public_domain",
         "rights_label": "公有領域 / 學術引用",
         "description": "位於塔里木盆地東南部、阿爾金山北麓沖積平原（現新疆若羌/羅布泊南緣一帶）。斯坦因《Innermost Asia》地圖標註之歷史聚落地點（Sheet 30.1.D），具重要地理座標標定價值。",
-        "source_links": [{
-          "label": "斯坦因地名記錄",
-          "search_term": "Chindailik",
-          "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Chindailik",
-          "record_title": "Chindailik",
-          "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00941.html.en",
-          "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
-          "status": "verified"
-        }],
+        "source_links": [
+          {
+            "label": "斯坦因地名記錄",
+            "search_term": "Chindailik",
+            "url": "https://dsr.nii.ac.jp/cgi-bin/digital-maps/list.pl?lang=en&map=stein&name=Chindailik",
+            "record_title": "Chindailik",
+            "record_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/00941.html.en",
+            "fallback_url": "https://dsr.nii.ac.jp/digital-maps/stein/place-names/index.html.en",
+            "status": "verified"
+          }
+        ],
         "images": []
       }
     }

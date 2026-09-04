@@ -219,12 +219,13 @@ test("Loulan uses a local thumbnail and an IDP artifact record", async () => {
   assert.ok(loulan, "Loulan site record must exist");
   assert.equal(loulan.properties.images, undefined, "Loulan must not retain the retired image data");
   assert.ok(Array.isArray(loulan.properties.artifact_records), "Loulan must provide artifact records");
-  assert.deepEqual(loulan.properties.artifact_records, [{
+  assert.ok(loulan.properties.artifact_records.length >= 1, "Loulan must provide at least one artifact record");
+  assert.deepEqual(loulan.properties.artifact_records[0], {
     title: "String of 25 glass beads of different shapes and colours",
     image_url: "images/artifacts/loulan-glass-beads.png",
     record_url: "https://idp.bl.uk/collection/6D85CEDE6B2E4733B2517DE77B53DB20/",
     source: "International Dunhuang Project (IDP)"
-  }]);
+  });
   await access(new URL("../images/artifacts/loulan-glass-beads.png", import.meta.url));
 });
 

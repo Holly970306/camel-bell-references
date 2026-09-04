@@ -77,8 +77,8 @@ async function readRecords(workbookPath, projectRoot) {
     if (!isAllowedRecordUrl(normalized.record_url)) errors.push(`第 ${rowNumber} 列：record_url 必須是 HTTP 或 HTTPS 網址`);
     const imageError = await validateImagePath(normalized.image_path, projectRoot);
     if (imageError) errors.push(`第 ${rowNumber} 列：${imageError}`);
-    const duplicateKey = `${normalized.site_id}\u0000${normalized.record_url}`;
-    if (seen.has(duplicateKey)) errors.push(`第 ${rowNumber} 列：site_id 與 record_url 不得重複`);
+    const duplicateKey = `${normalized.site_id}\u0000${normalized.image_path}`;
+    if (seen.has(duplicateKey)) errors.push(`第 ${rowNumber} 列：site_id 與 image_path 不得重複`);
     seen.add(duplicateKey);
     records.push({ ...normalized, rowNumber });
   }

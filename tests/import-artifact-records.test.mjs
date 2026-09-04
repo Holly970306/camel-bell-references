@@ -122,7 +122,7 @@ test("匯入拒絕不安全圖片、非 HTTP 連結與重複紀錄，且不寫�
   const { workbookPath, geojsonPath } = await createFixture([
     ["loulan-la", "不安全圖片", "ftp://example.org/item", "../private/image.png", "IDP", "public_domain", "ready"],
     ["loulan-la", "重複紀錄", "https://example.org/item", "images/artifacts/beads.png", "IDP", "public_domain", "ready"],
-    ["loulan-la", "另一個重複紀錄", "https://example.org/item", "images/artifacts/second.jpg", "IDP", "public_domain", "ready"]
+    ["loulan-la", "同圖片另一列", "https://example.org/other", "images/artifacts/beads.png", "IDP", "public_domain", "ready"]
   ]);
   const before = await readFile(geojsonPath, "utf8");
 
@@ -131,8 +131,26 @@ test("匯入拒絕不安全圖片、非 HTTP 連結與重複紀錄，且不寫�
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /record_url 必須是 HTTP 或 HTTPS 網址/);
   assert.match(result.stderr, /image_path 必須是專案內、使用正斜線的相對路徑/);
-  assert.match(result.stderr, /site_id 與 record_url 不得重複/);
+  assert.match(result.stderr, /site_id 與 image_path 不得重複/);
   assert.equal(await readFile(geojsonPath, "utf8"), before);
+});
+
+test("匯入放行同一 site_id 共用 record_url 但圖片不同的多筆紀錄", async () => {
+  const { workbookPath, geojsonPath } = await createFixture([
+    ["loulan-la", "第一張照片", "https://example.org/shared-page", "images/artifacts/beads.png", "IDP", "public_domain", "ready"],
+    ["loulan-la", "第二張照片", "https://example.org/shared-page", "images/artifacts/second.jpg", "IDP", "public_domain", "ready"]
+  ]);
+
+  const result = runImport(workbookPath, geojsonPath);
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /匯入列數：2/);
+
+  const imported = JSON.parse(await readFile(geojsonPath, "utf8")).features[0];
+  assert.deepEqual(imported.properties.artifact_records, [
+    { title: "第一張照片", image_url: "images/artifacts/beads.png", record_url: "https://example.org/shared-page", source: "IDP" },
+    { title: "第二張照片", image_url: "images/artifacts/second.jpg", record_url: "https://example.org/shared-page", source: "IDP" }
+  ]);
 });
 
 test("匯入拒絕缺少 records 工作表的活頁簿", async () => {
